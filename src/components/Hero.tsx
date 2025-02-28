@@ -67,14 +67,14 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        
-        {/* Scroll indicator - only visible on larger screens */}
-        <div className="hidden md:block md:absolute md:bottom-10 md:left-0 md:right-0 md:mx-auto md:w-fit animate-fade-in reveal-delay-5">
-          <a href="#about" className="flex flex-col items-center text-muted-foreground hover:text-primary transition-colors">
-            <span className="text-sm font-medium mb-2">Scroll down</span>
-            <ArrowDownCircle className="animate-bounce" size={24} />
-          </a>
-        </div>
+      </div>
+      
+      {/* Scroll indicator - moved to absolute bottom of the section */}
+      <div className="hidden md:block absolute bottom-5 left-0 right-0 mx-auto w-fit animate-fade-in reveal-delay-5">
+        <a href="#about" className="flex flex-col items-center text-muted-foreground hover:text-primary transition-colors">
+          <span className="text-sm font-medium mb-2">Scroll down</span>
+          <ArrowDownCircle className="animate-bounce" size={24} />
+        </a>
       </div>
     </section>
   );
