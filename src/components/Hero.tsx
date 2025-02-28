@@ -68,8 +68,8 @@ const Hero = () => {
           </div>
         </div>
         
-        {/* Scroll indicator - positioned below the profile picture */}
-        <div className="mt-16 md:mt-8 text-center md:absolute md:bottom-10 md:left-0 md:right-0 md:mx-auto md:w-fit animate-fade-in reveal-delay-5">
+        {/* Scroll indicator - only visible on larger screens */}
+        <div className="hidden md:block md:absolute md:bottom-10 md:left-0 md:right-0 md:mx-auto md:w-fit animate-fade-in reveal-delay-5">
           <a href="#about" className="flex flex-col items-center text-muted-foreground hover:text-primary transition-colors">
             <span className="text-sm font-medium mb-2">Scroll down</span>
             <ArrowDownCircle className="animate-bounce" size={24} />

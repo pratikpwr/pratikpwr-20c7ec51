@@ -70,14 +70,14 @@ const Experience = () => {
         <p className="section-subtitle">My professional journey in mobile application development</p>
         
         <div className="grid md:grid-cols-12 gap-8 mt-8">
-          {/* Tabs */}
+          {/* Tabs - modified to prevent horizontal overflow on mobile */}
           <div className="md:col-span-4 lg:col-span-3">
-            <div className="flex md:flex-col overflow-x-auto md:overflow-x-visible space-x-4 md:space-x-0 md:space-y-2 pb-4 md:pb-0">
+            <div className="flex md:flex-col flex-wrap overflow-x-visible md:overflow-x-visible space-x-2 md:space-x-0 md:space-y-2 pb-4 md:pb-0">
               {experiences.map((exp) => (
                 <button
                   key={exp.id}
                   onClick={() => setActiveTab(exp.id)}
-                  className={`px-4 py-3 text-left rounded-lg transition-all whitespace-nowrap md:whitespace-normal ${
+                  className={`px-3 py-2 md:px-4 md:py-3 text-left rounded-lg transition-all text-sm md:text-base ${
                     activeTab === exp.id
                       ? "bg-primary/10 text-primary font-medium"
                       : "hover:bg-muted"
@@ -99,11 +99,11 @@ const Experience = () => {
                 }`}
               >
                 <div>
-                  <div className="flex items-start justify-between">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between">
                     <div>
-                      <h3 className="text-2xl font-bold font-display">{exp.role}</h3>
+                      <h3 className="text-xl md:text-2xl font-bold font-display">{exp.role}</h3>
                       <div className="flex items-center mt-1">
-                        <span className="text-lg text-primary">{exp.company}</span>
+                        <span className="text-md md:text-lg text-primary">{exp.company}</span>
                         {exp.link && (
                           <a
                             href={exp.link}
@@ -116,7 +116,7 @@ const Experience = () => {
                         )}
                       </div>
                     </div>
-                    <div className="text-right">
+                    <div className="text-left sm:text-right mt-2 sm:mt-0">
                       <span className="text-muted-foreground">{exp.period}</span>
                       <p className="text-sm text-muted-foreground">{exp.location}</p>
                     </div>
