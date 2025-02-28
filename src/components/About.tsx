@@ -33,16 +33,6 @@ const About = () => {
                   experience in creating high-performance applications within innovative tech environments, particularly in the realms of 
                   ecommerce, AgriTech and digital solutions.
                 </p>
-                <ul className="space-y-2 list-disc pl-5">
-                  <li>Currently working as Senior Flutter Developer at Eigital (EatOS), focusing on the integration of sophisticated payment systems
-                  to enhance transaction efficiency and user satisfaction.</li>
-                  <li>Gained expertise in various aspects of Mobile Development, including payment gateway integrations, performance
-                  optimization, and cross-platform application enhancements.</li>
-                  <li>Proven track record of elevating the crash-free rate of applications significantly from 82% to 94% by implementing thorough
-                  debugging processes and optimization strategies.</li>
-                  <li>Proficient in utilizing CI/CD pipelines for efficient app delivery, automated testing, and version control using Git, ensuring fast,
-                  reliable, and scalable app releases.</li>
-                </ul>
               </div>
             </div>
             
