@@ -13,8 +13,8 @@ const Hero = () => {
       <div className="section-container relative w-full">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Profile Image */}
-            <div className="flex justify-center md:justify-start animate-fade-in reveal-delay-1 order-2 md:order-1">
+            {/* Profile Image - Changed order to be first in mobile view */}
+            <div className="flex justify-center md:justify-start animate-fade-in reveal-delay-1 order-1 md:order-1">
               <div className="relative">
                 <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary/30 to-secondary/20 blur-lg"></div>
                 <div className="relative h-64 w-64 md:h-80 md:w-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
@@ -28,7 +28,7 @@ const Hero = () => {
             </div>
             
             {/* Text Content */}
-            <div className="space-y-6 text-center md:text-left order-1 md:order-2">
+            <div className="space-y-6 text-center md:text-left order-2 md:order-2">
               {/* Badge */}
               <div className="inline-block animate-fade-in reveal-delay-1">
                 <div className="px-4 py-1.5 rounded-full border border-border bg-muted/80 backdrop-blur-sm text-sm font-medium">
