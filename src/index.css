@@ -16,7 +16,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
 
-    --primary: 230 100% 60%; /* Flutter blue */
+    --primary: 239 86% 62%; /* Changed to rgb(76, 77, 240) */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 176 86% 42%; /* Teal accent */
