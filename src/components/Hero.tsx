@@ -10,7 +10,7 @@ const Hero = () => {
         <div className="absolute bottom-20 right-10 w-72 h-72 bg-secondary/10 rounded-full filter blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
       </div>
       
-      <div className="section-container">
+      <div className="section-container relative w-full">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Profile Image */}
@@ -66,14 +66,14 @@ const Hero = () => {
               </div>
             </div>
           </div>
-          
-          {/* Scroll indicator */}
-          <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-fade-in reveal-delay-5">
-            <a href="#about" className="flex flex-col items-center text-muted-foreground hover:text-primary transition-colors">
-              <span className="text-sm font-medium mb-2">Scroll down</span>
-              <ArrowDownCircle className="animate-bounce" size={24} />
-            </a>
-          </div>
+        </div>
+        
+        {/* Scroll indicator - fixed positioning relative to the section */}
+        <div className="absolute bottom-10 left-0 right-0 mx-auto w-fit animate-fade-in reveal-delay-5">
+          <a href="#about" className="flex flex-col items-center text-muted-foreground hover:text-primary transition-colors">
+            <span className="text-sm font-medium mb-2">Scroll down</span>
+            <ArrowDownCircle className="animate-bounce" size={24} />
+          </a>
         </div>
       </div>
     </section>
