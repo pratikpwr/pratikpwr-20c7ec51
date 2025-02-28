@@ -26,7 +26,7 @@ const About = () => {
           {/* Content */}
           <div className="order-1 md:order-2 space-y-6">
             <div>
-              <h3 className="text-2xl font-bold mb-4 font-display">Profile Summary</h3>
+              <h3 className="text-2xl font-bold mb-4 font-display text-center md:text-left">Profile Summary</h3>
               <div className="space-y-4 text-muted-foreground">
                 <p>
                   Dynamic Mobile Application Developer Professional with a strong focus on Flutter Development, seeking to leverage extensive
@@ -37,7 +37,7 @@ const About = () => {
             </div>
             
             <div>
-              <h3 className="text-2xl font-bold mb-4 font-display">Education</h3>
+              <h3 className="text-2xl font-bold mb-4 font-display text-center md:text-left">Education</h3>
               <div className="space-y-2 text-muted-foreground">
                 <p>B.E. in Computer Science Engineering</p>
                 <p>SITRC Nashik, 2018 - 2022</p>
@@ -46,7 +46,7 @@ const About = () => {
             </div>
             
             <div>
-              <h3 className="text-2xl font-bold mb-4 font-display">Highlights</h3>
+              <h3 className="text-2xl font-bold mb-4 font-display text-center md:text-left">Highlights</h3>
               <div className="space-y-2 text-muted-foreground">
                 <p>• Speaker at Flutter Nashik Event: Delivered an in-depth presentation on the Flutter learning roadmap, offering valuable insights to aspiring developers.</p>
                 <p>• Host of Tech Meetups: Organized and facilitated multiple tech meetups, fostering a collaborative local tech community and promoting knowledge sharing.</p>
