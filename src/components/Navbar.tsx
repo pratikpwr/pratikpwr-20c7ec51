@@ -39,7 +39,7 @@ const Navbar = () => {
           {/* Logo */}
           <a href="#home" className="flex items-center space-x-2">
             <img 
-              src="/lovable-uploads/5e1b43ad-73eb-4577-b572-015dc5cd7bc0.png" 
+              src="/lovable-uploads/349e46a0-86c6-433a-8b8a-dc4c45468c2d.png" 
               alt="Pratik Pawar Logo" 
               className="w-6 h-6"
             />
