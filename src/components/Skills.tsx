@@ -1,36 +1,49 @@
 
+import { 
+  Code2, GitBranch, Database, Server, 
+  LayoutPanelTop, Globe, Smartphone, Fingerprint 
+} from 'lucide-react';
+
 const skillsCategories = [
   {
     name: "Mobile Development",
-    skills: ["Flutter", "Dart", "Android", "iOS"]
+    skills: ["Flutter", "Dart", "Android", "iOS"],
+    icon: <Smartphone className="w-6 h-6 text-primary" />
   },
   {
     name: "Architecture",
-    skills: ["Clean Architecture", "TDD (Test-Driven Development)", "MVVM", "MVP", "MVC"]
+    skills: ["Clean Architecture", "TDD (Test-Driven Development)", "MVVM", "MVP", "MVC"],
+    icon: <LayoutPanelTop className="w-6 h-6 text-primary" />
   },
   {
     name: "APIs",
-    skills: ["REST APIs", "GraphQL"]
+    skills: ["REST APIs", "GraphQL"],
+    icon: <Globe className="w-6 h-6 text-primary" />
   },
   {
     name: "Tools & Platforms",
-    skills: ["Firebase", "CI/CD", "Git/Version Control", "FlutterFlow", "Jira"]
+    skills: ["Firebase", "CI/CD", "Git/Version Control", "FlutterFlow", "Jira"],
+    icon: <GitBranch className="w-6 h-6 text-primary" />
   },
   {
     name: "State Management",
-    skills: ["Bloc", "Provider", "Riverpod"]
+    skills: ["Bloc", "Provider", "Riverpod"],
+    icon: <Fingerprint className="w-6 h-6 text-primary" />
   },
   {
     name: "Programming Languages",
-    skills: ["Java", "Kotlin", "JavaScript", "Python"]
+    skills: ["Java", "Kotlin", "JavaScript", "Python"],
+    icon: <Code2 className="w-6 h-6 text-primary" />
   },
   {
     name: "Backend & Frameworks",
-    skills: ["Flask", "Node.js"]
+    skills: ["Flask", "Node.js"],
+    icon: <Server className="w-6 h-6 text-primary" />
   },
   {
     name: "Databases",
-    skills: ["SQL lite"]
+    skills: ["SQL lite"],
+    icon: <Database className="w-6 h-6 text-primary" />
   }
 ];
 
@@ -58,14 +71,17 @@ const Skills = () => {
           <div className="space-y-6">
             <h3 className="text-2xl font-bold font-display text-center md:text-left">Technical Skills</h3>
             
-            <div className="grid gap-6 sm:grid-cols-2">
+            <div className="grid gap-4 sm:grid-cols-2">
               {skillsCategories.map((category, index) => (
                 <div 
                   key={category.name}
                   className="glass-card p-6 hover-card"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <h4 className="text-lg font-medium mb-3 text-primary">{category.name}</h4>
+                  <div className="flex items-center gap-3 mb-4">
+                    {category.icon}
+                    <h4 className="text-lg font-medium text-primary">{category.name}</h4>
+                  </div>
                   <div className="flex flex-wrap gap-2">
                     {category.skills.map((skill) => (
                       <span 
@@ -85,7 +101,7 @@ const Skills = () => {
           <div className="space-y-6">
             <h3 className="text-2xl font-bold font-display text-center md:text-left">Core Competencies</h3>
             
-            <div className="grid gap-4 sm:grid-cols-2">
+            <div className="space-y-4">
               {coreCompetencies.map((competency, index) => (
                 <div 
                   key={index}
