@@ -3,7 +3,7 @@ import { ArrowDownCircle } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-16 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center pt-16 pb-20 overflow-hidden">
       {/* Background elements */}
       <div className="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full filter blur-3xl animate-float"></div>
@@ -68,8 +68,8 @@ const Hero = () => {
           </div>
         </div>
         
-        {/* Scroll indicator - fixed positioning relative to the section */}
-        <div className="absolute bottom-10 left-0 right-0 mx-auto w-fit animate-fade-in reveal-delay-5">
+        {/* Scroll indicator - positioned below the profile picture */}
+        <div className="mt-16 md:mt-8 text-center md:absolute md:bottom-10 md:left-0 md:right-0 md:mx-auto md:w-fit animate-fade-in reveal-delay-5">
           <a href="#about" className="flex flex-col items-center text-muted-foreground hover:text-primary transition-colors">
             <span className="text-sm font-medium mb-2">Scroll down</span>
             <ArrowDownCircle className="animate-bounce" size={24} />
