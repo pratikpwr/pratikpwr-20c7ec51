@@ -68,7 +68,7 @@ const Skills = () => {
         
         {/* Technical Skills */}
         <div className="mt-10">
-          <h3 className="text-2xl font-bold font-display text-center md:text-left">Technical Skills</h3>
+          <h3 className="text-2xl font-bold font-display text-center mb-6">Technical Skills</h3>
           
           <div className="grid gap-4 sm:grid-cols-2 mt-6">
             {skillsCategories.map((category, index) => (
@@ -98,9 +98,9 @@ const Skills = () => {
         
         {/* Core Competencies */}
         <div className="mt-16">
-          <h3 className="text-2xl font-bold font-display text-center md:text-left">Core Competencies</h3>
+          <h3 className="text-2xl font-bold font-display text-center mb-6">Core Competencies</h3>
           
-          <div className="space-y-4 mt-6">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 mt-6">
             {coreCompetencies.map((competency, index) => (
               <div 
                 key={index}
