@@ -14,8 +14,8 @@ const About = () => {
               <div className="relative glass-card p-1 overflow-hidden">
                 <div className="aspect-[4/5] rounded-xl overflow-hidden">
                   <img 
-                    src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80&w=1770" 
-                    alt="Coding setup" 
+                    src="/lovable-uploads/1ef5d162-32de-4d50-a713-8c82b1ce5ce3.png" 
+                    alt="Pratik Pawar speaking at Flutter Nashik event" 
                     className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-105"
                   />
                 </div>
