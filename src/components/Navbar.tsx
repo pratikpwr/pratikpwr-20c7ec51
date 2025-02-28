@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin } from 'lucide-react';
+import { ThemeToggle } from './ThemeToggle';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,7 +29,11 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm' : 'bg-transparent'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm' 
+        : 'bg-transparent'
+    }`}>
       <div className="max-w-7xl mx-auto px-6 sm:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -53,7 +58,7 @@ const Navbar = () => {
               </a>
             ))}
             
-            {/* Social links */}
+            {/* Social links and Theme Toggle */}
             <div className="flex items-center space-x-4 ml-4">
               <a 
                 href="https://github.com/pratikpwr" 
@@ -73,23 +78,27 @@ const Navbar = () => {
               >
                 <Linkedin size={20} />
               </a>
+              <ThemeToggle />
             </div>
           </div>
 
           {/* Mobile menu button */}
-          <button 
-            className="md:hidden text-foreground" 
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="flex items-center md:hidden">
+            <ThemeToggle />
+            <button 
+              className="ml-2 text-foreground" 
+              onClick={toggleMenu}
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-md shadow-lg">
+        <div className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg">
           <div className="px-6 py-4 space-y-2">
             {navLinks.map((link) => (
               <a 
