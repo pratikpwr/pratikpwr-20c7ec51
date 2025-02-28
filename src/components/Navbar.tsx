@@ -33,6 +33,11 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <a href="#home" className="flex items-center space-x-2">
+            <img 
+              src="/lovable-uploads/5e1b43ad-73eb-4577-b572-015dc5cd7bc0.png" 
+              alt="Pratik Pawar Logo" 
+              className="w-6 h-6"
+            />
             <span className="text-xl font-display font-bold text-primary">Pratik Pawar</span>
           </a>
 
