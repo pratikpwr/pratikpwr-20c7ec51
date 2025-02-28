@@ -66,54 +66,52 @@ const Skills = () => {
         <h2 className="section-title">Skills & Competencies</h2>
         <p className="section-subtitle">My technical expertise and core competencies</p>
         
-        <div className="grid gap-8 lg:grid-cols-2 mt-10">
-          {/* Technical Skills */}
-          <div className="space-y-6">
-            <h3 className="text-2xl font-bold font-display text-center md:text-left">Technical Skills</h3>
-            
-            <div className="grid gap-4 sm:grid-cols-2">
-              {skillsCategories.map((category, index) => (
-                <div 
-                  key={category.name}
-                  className="glass-card p-6 hover-card"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  <div className="flex items-center gap-3 mb-4">
-                    {category.icon}
-                    <h4 className="text-lg font-medium text-primary">{category.name}</h4>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {category.skills.map((skill) => (
-                      <span 
-                        key={skill} 
-                        className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded-full"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* Technical Skills */}
+        <div className="mt-10">
+          <h3 className="text-2xl font-bold font-display text-center md:text-left">Technical Skills</h3>
           
-          {/* Core Competencies */}
-          <div className="space-y-6">
-            <h3 className="text-2xl font-bold font-display text-center md:text-left">Core Competencies</h3>
-            
-            <div className="space-y-4">
-              {coreCompetencies.map((competency, index) => (
-                <div 
-                  key={index}
-                  className="relative group"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary/30 rounded-xl blur-sm opacity-60 group-hover:opacity-100 transition-opacity"></div>
-                  <div className="relative flex items-center p-4 bg-white/80 backdrop-blur-sm border border-white/20 rounded-xl shadow-sm h-full group-hover:transform group-hover:-translate-y-1 transition-transform">
-                    <p className="font-medium">{competency}</p>
-                  </div>
+          <div className="grid gap-4 sm:grid-cols-2 mt-6">
+            {skillsCategories.map((category, index) => (
+              <div 
+                key={category.name}
+                className="glass-card p-6 hover-card"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  {category.icon}
+                  <h4 className="text-lg font-medium text-primary">{category.name}</h4>
                 </div>
-              ))}
-            </div>
+                <div className="flex flex-wrap gap-2">
+                  {category.skills.map((skill) => (
+                    <span 
+                      key={skill} 
+                      className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded-full"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        {/* Core Competencies */}
+        <div className="mt-16">
+          <h3 className="text-2xl font-bold font-display text-center md:text-left">Core Competencies</h3>
+          
+          <div className="space-y-4 mt-6">
+            {coreCompetencies.map((competency, index) => (
+              <div 
+                key={index}
+                className="relative group"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary/30 rounded-xl blur-sm opacity-60 group-hover:opacity-100 transition-opacity"></div>
+                <div className="relative flex items-center p-4 bg-white/80 backdrop-blur-sm border border-white/20 rounded-xl shadow-sm h-full group-hover:transform group-hover:-translate-y-1 transition-transform">
+                  <p className="font-medium">{competency}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
