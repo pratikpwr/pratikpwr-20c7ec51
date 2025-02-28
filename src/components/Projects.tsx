@@ -19,8 +19,7 @@ const projects: Project[] = [
     description: "An app that allows college students to access their timetable, view current and upcoming lectures, and enables teachers to upload timetables, assignments, and important notices, streamlining communication between faculty and students.",
     image: "/lovable-uploads/2ff2c74b-1974-439b-a2b6-ee32897458ac.png",
     technologies: ["Flutter", "Dart", "Bloc", "Flask", "Python"],
-    github: "#",
-    link: "#"
+    github: "https://github.com/pratikpwr/TimeTable-APP"
   },
   {
     id: "swipeup",
@@ -28,8 +27,7 @@ const projects: Project[] = [
     description: "A user-friendly news app with category-based search and detailed article views, integrated with NewsAPI.org for real-time updates, ensuring a dynamic and up-to-date user experience.",
     image: "/lovable-uploads/3668c377-1405-458c-8793-aa2f3bc123b4.png",
     technologies: ["Flutter", "Dart", "REST API"],
-    github: "#",
-    link: "#"
+    github: "https://github.com/pratikpwr/SwipeUp-News"
   }
 ];
 
@@ -85,18 +83,6 @@ const Projects = () => {
                     >
                       <Github size={18} />
                       <span>Code</span>
-                    </a>
-                  )}
-                  
-                  {project.link && (
-                    <a 
-                      href={project.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors"
-                    >
-                      <ExternalLink size={18} />
-                      <span>Live Demo</span>
                     </a>
                   )}
                 </div>

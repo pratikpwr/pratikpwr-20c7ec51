@@ -20,7 +20,7 @@ const experiences: ExperienceItem[] = [
     role: "Senior Flutter Developer",
     period: "July 2023 – Present",
     location: "USA (Remote)",
-    link: "#",
+    link: "https://www.eatos.com/",
     description: [
       "Focusing on implementing new features and enhancements for the core application, including integrating diverse payment gateways to support international markets such as the UK and USA.",
       "Handling the implementation of both native code and method channels for seamless integration of payment systems and other essential functionalities.",
@@ -38,7 +38,7 @@ const experiences: ExperienceItem[] = [
     role: "Mobile Application Developer",
     period: "Dec 2021 – July 2023",
     location: "Nashik, India",
-    link: "#",
+    link: "https://www.farmsetu.co/",
     description: [
       "Led the initial project setup, incorporating key components such as flavors, analytics, Sentry, notifications, and payment integrations to establish a solid foundation for app development.",
       "Developed a custom Mason template for Dart code generation, reducing boilerplate coding time from 1 hour to just 5 minutes, significantly streamlining the development process and improving overall productivity.",
@@ -51,7 +51,7 @@ const experiences: ExperienceItem[] = [
     role: "Software Developer",
     period: "Jan 2021 – Nov 2021",
     location: "Pune, India",
-    link: "#",
+    link: "https://dreamcaredevelopers.com/",
     description: [
       "Enhanced the Nearme Flutter app by identifying and resolving key issues, while adding new features to improve app performance by 20%, thereby optimizing user experience and retention.",
       "Designed and developed the Police Patil project, a solution for digitalizing activity tracking for village-assigned individuals, streamlining operations and improving efficiency.",

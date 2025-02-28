@@ -42,7 +42,7 @@ const skillsCategories = [
   },
   {
     name: "Databases",
-    skills: ["SQL lite"],
+    skills: ["SQL lite", "Hive"],
     icon: <Database className="w-6 h-6 text-primary" />
   }
 ];

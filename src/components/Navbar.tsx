@@ -51,7 +51,7 @@ const Navbar = () => {
             {/* Social links */}
             <div className="flex items-center space-x-4 ml-4">
               <a 
-                href="https://github.com/" 
+                href="https://github.com/pratikpwr" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
@@ -60,7 +60,7 @@ const Navbar = () => {
                 <Github size={20} />
               </a>
               <a 
-                href="https://linkedin.com/" 
+                href="https://www.linkedin.com/in/pratikpwr/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
@@ -100,7 +100,7 @@ const Navbar = () => {
             {/* Social links */}
             <div className="flex items-center space-x-4 py-4">
               <a 
-                href="https://github.com/" 
+                href="https://github.com/pratikpwr" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
@@ -109,7 +109,7 @@ const Navbar = () => {
                 <Github size={20} />
               </a>
               <a 
-                href="https://linkedin.com/" 
+                href="https://www.linkedin.com/in/pratikpwr/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
