@@ -19,7 +19,7 @@ const Footer = () => {
           
           <div className="mt-8 pt-8 border-t border-border">
             <p className="text-muted-foreground text-sm mb-2">
-              Made with <span className="text-red-500">❤️</span> <a href="https://lovable.dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">AI</a>
+              Crafted with <span className="text-red-500">❤️</span> <a href="https://lovable.dev" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">AI</a>
             </p>
             <p className="text-muted-foreground text-sm">
               © {currentYear} Pratik Pawar. All rights reserved.
