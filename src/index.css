@@ -161,7 +161,7 @@
     opacity: 0;
   }
   
-  /* NEW: Animated gradient background for sections */
+  /* Gradient background for home section in light mode and all sections in dark mode */
   .gradient-bg {
     position: relative;
     z-index: 1;
@@ -178,6 +178,11 @@
     background-size: 300% 300%;
     animation: gradientMove 15s ease infinite;
     z-index: -1;
+  }
+  
+  /* Only apply gradient background to non-home sections in dark mode */
+  :not(#home).gradient-bg::before {
+    @apply hidden dark:block;
   }
   
   @keyframes gradientMove {
@@ -203,4 +208,3 @@
     }
   }
 }
-
