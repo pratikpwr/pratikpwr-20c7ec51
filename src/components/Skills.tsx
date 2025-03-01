@@ -28,7 +28,7 @@ const skillsCategories = [
   {
     name: "State Management",
     skills: ["Bloc", "Provider", "Riverpod"],
-    icon: <Fingerprint className="w-6 h-6 text-primary" />
+    icon: <Database className="w-6 h-6 text-primary" />
   },
   {
     name: "Programming Languages",

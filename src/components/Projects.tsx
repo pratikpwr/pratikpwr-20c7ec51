@@ -14,6 +14,14 @@ interface Project {
 
 const projects: Project[] = [
   {
+    id: "safepass",
+    title: "SafePass",
+    description: "SafePass is a secure and offline password manager built with Flutter. It allows users to store and manage their passwords locally with encryption, ensuring maximum security. The app also features an easy-to-use random password generator.",
+    image: "/lovable-uploads/10341517-6741-49e8-9cc7-508f61b20068.png",
+    technologies: ["Flutter", "Dart", "Bloc", "Encrypt", "Hive"],
+    github: "https://github.com/pratikpwr/safepass"
+  },
+  {
     id: "collegebuddy",
     title: "College Buddy",
     description: "An app that allows college students to access their timetable, view current and upcoming lectures, and enables teachers to upload timetables, assignments, and important notices, streamlining communication between faculty and students.",
