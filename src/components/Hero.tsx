@@ -1,80 +1,107 @@
-
-import { ArrowDownCircle } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { ArrowDown, ArrowRight } from 'lucide-react';
 
 const Hero = () => {
+  const [text, setText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopNum, setLoopNum] = useState(0);
+  const [typingSpeed, setTypingSpeed] = useState(150); // Default typing speed
+  const [pauseDuration, setPauseDuration] = useState(1500); // Pause duration after each word
+  const toRotate = ["Mobile App Developer", "Problem Solver", "Tech Enthusiast"];
+  const period = 2000;
+
+  useEffect(() => {
+    let ticker: NodeJS.Timeout;
+
+    const tick = () => {
+      let i = loopNum % toRotate.length;
+      let fullText = toRotate[i];
+
+      if (isDeleting) {
+        setText(fullText.substring(0, text.length - 1));
+      } else {
+        setText(fullText.substring(0, text.length + 1));
+      }
+
+      if (isDeleting) {
+        setTypingSpeed(30); // Adjust deleting speed
+      }
+
+      if (!isDeleting && text === fullText) {
+        clearInterval(ticker);
+        setTimeout(() => {
+          setIsDeleting(true);
+          setTypingSpeed(30);
+          ticker = setInterval(tick, typingSpeed);
+        }, pauseDuration);
+      } else if (isDeleting && text === '') {
+        setIsDeleting(false);
+        setLoopNum(loopNum + 1);
+        clearInterval(ticker);
+        setTimeout(() => {
+          setTypingSpeed(150); // Reset typing speed
+          ticker = setInterval(tick, typingSpeed);
+        }, 500);
+      }
+    };
+
+    ticker = setInterval(tick, typingSpeed);
+
+    return () => {
+      clearInterval(ticker);
+    };
+  }, [text, isDeleting, loopNum, typingSpeed, pauseDuration, toRotate]);
+
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-16 pb-20 overflow-hidden gradient-bg">
-      {/* Background elements */}
-      <div className="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full filter blur-3xl animate-float"></div>
-        <div className="absolute bottom-20 right-10 w-72 h-72 bg-secondary/10 rounded-full filter blur-3xl animate-float" style={{ animationDelay: '2s' }}></div>
-      </div>
-      
-      <div className="section-container relative w-full">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Profile Image - Changed order to be first in mobile view */}
-            <div className="flex justify-center md:justify-start animate-fade-in reveal-delay-1 order-1 md:order-1">
+    <section id="home" className="py-20 min-h-[85vh] flex items-center justify-center gradient-bg">
+      <div className="container mx-auto px-6 py-12">
+        <div className="grid gap-6 md:grid-cols-2 items-center">
+          {/* Left Content */}
+          <div className="order-2 md:order-1">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold font-display text-center md:text-left mb-4">
+              Hi, I'm <span className="text-primary">Pratik Pawar</span>
+            </h1>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold font-display text-center md:text-left mb-6 text-muted-foreground">
+              I'm a <span className="text-white ml-2">{text}</span>
+            </h2>
+            <p className="text-lg text-muted-foreground text-center md:text-left mb-8">
+              A passionate mobile app developer dedicated to crafting innovative solutions and creating seamless user experiences.
+            </p>
+            <div className="flex justify-center md:justify-start space-x-4">
+              <a href="#projects" className="group relative h-12 w-48 overflow-hidden rounded-lg bg-secondary text-sm font-medium text-white">
+                <div className="absolute inset-0 w-3 bg-primary transition-all duration-[250ms] ease-out group-hover:w-full"></div>
+                <span className="relative text-white group-hover:text-white">
+                  Explore Projects
+                  <ArrowRight className="inline-block ml-2 h-4 w-4 group-hover:animate-ping" />
+                </span>
+              </a>
+              <a href="#contact" className="group relative h-12 w-48 overflow-hidden rounded-lg bg-white dark:bg-gray-800 text-sm font-medium text-gray-700 dark:text-white">
+                <div className="absolute inset-0 w-3 bg-primary transition-all duration-[250ms] ease-out group-hover:w-full"></div>
+                <span className="relative group-hover:text-white">
+                  Contact Me
+                  <ArrowDown className="inline-block ml-2 h-4 w-4 group-hover:animate-bounce" />
+                </span>
+              </a>
+            </div>
+          </div>
+
+          {/* Right Image */}
+          <div className="order-1 md:order-2">
+            <div className="flex justify-center md:justify-end">
               <div className="relative">
-                <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary/30 to-secondary/20 blur-lg"></div>
-                <div className="relative h-64 w-64 md:h-80 md:w-80 profile-img rounded-full overflow-hidden border-4 border-white shadow-xl">
-                  <img 
-                    src="/lovable-uploads/400afafe-afd6-48ef-b1ae-4454b493c39a.png" 
-                    alt="Pratik Pawar" 
-                    className="w-full h-full object-cover"
+                <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary/80 to-secondary/80 blur-2xl opacity-50 animate-float"></div>
+                <div className="relative rounded-full overflow-hidden h-80 w-80 md:h-96 md:w-96">
+                  <img
+                    src="/lovable-uploads/4eb24dff-f123-487e-a900-2cf73b2ed0c8.png"
+                    alt="Pratik Pawar"
+                    className="w-full h-full object-cover profile-img"
+                    style={{ objectPosition: 'top' }}
                   />
                 </div>
               </div>
             </div>
-            
-            {/* Text Content */}
-            <div className="space-y-6 text-center md:text-left order-2 md:order-2">
-              {/* Badge */}
-              <div className="inline-block animate-fade-in reveal-delay-1">
-                <div className="px-4 py-1.5 rounded-full border border-border bg-muted/80 backdrop-blur-sm text-sm font-medium">
-                  Sr. Flutter Developer
-                </div>
-              </div>
-              
-              {/* Main heading */}
-              <div className="overflow-hidden">
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold leading-tight animate-text-reveal reveal-delay-2">
-                  Pratik Pawar
-                </h1>
-              </div>
-              
-              <div className="overflow-hidden">
-                <p className="text-xl md:text-2xl text-muted-foreground animate-text-reveal reveal-delay-3">
-                  Crafting exceptional mobile experiences with Flutter
-                </p>
-              </div>
-              
-              {/* CTA buttons */}
-              <div className="flex flex-col sm:flex-row justify-center md:justify-start items-center gap-4 pt-6 animate-fade-in reveal-delay-4">
-                <a 
-                  href="#contact" 
-                  className="px-6 py-3 rounded-lg bg-primary text-white font-medium hover-card shadow-md"
-                >
-                  Get in Touch
-                </a>
-                <a 
-                  href="#projects" 
-                  className="px-6 py-3 rounded-lg bg-background border border-border font-medium hover-card shadow-sm"
-                >
-                  View Projects
-                </a>
-              </div>
-            </div>
           </div>
         </div>
-      </div>
-      
-      {/* Scroll indicator - moved to absolute bottom of the section */}
-      <div className="hidden md:block absolute bottom-5 left-0 right-0 mx-auto w-fit animate-fade-in reveal-delay-5">
-        <a href="#about" className="flex flex-col items-center text-muted-foreground hover:text-primary transition-colors">
-          <span className="text-sm font-medium mb-2">Scroll down</span>
-          <ArrowDownCircle className="animate-bounce" size={24} />
-        </a>
       </div>
     </section>
   );
