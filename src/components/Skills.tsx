@@ -1,7 +1,8 @@
 
 import { 
   Code2, GitBranch, Database, Server, 
-  LayoutPanelTop, Globe, Smartphone, Fingerprint 
+  LayoutPanelTop, Globe, Smartphone, Fingerprint,
+  RotateCw // Added rotation icon for state management
 } from 'lucide-react';
 
 const skillsCategories = [
@@ -28,7 +29,7 @@ const skillsCategories = [
   {
     name: "State Management",
     skills: ["Bloc", "Provider", "Riverpod"],
-    icon: <Database className="w-6 h-6 text-primary" />
+    icon: <RotateCw className="w-6 h-6 text-primary" /> // Changed to RotateCw icon
   },
   {
     name: "Programming Languages",

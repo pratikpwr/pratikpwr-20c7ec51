@@ -37,7 +37,7 @@ const Contact = () => {
         <h2 className="section-title">Get In Touch</h2>
         <p className="section-subtitle">Have a project in mind or just want to say hello? Feel free to reach out!</p>
         
-        <div className="grid md:grid-cols-2 gap-12 items-center mt-10">
+        <div className="grid md:grid-cols-2 gap-12 items-start mt-10">
           {/* Contact Form */}
           <div>
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -106,9 +106,9 @@ const Contact = () => {
             </form>
           </div>
           
-          {/* Contact Info */}
-          <div className="order-first md:order-last">
-            <div className="space-y-8">
+          {/* Contact Info - Aligned to start */}
+          <div className="order-first md:order-last flex justify-start">
+            <div className="space-y-8 w-full">
               <div className="relative">
                 <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-primary/20 to-secondary/20 blur-xl opacity-70"></div>
                 <div className="relative glass-card p-8 overflow-hidden">
