@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X, Github, Linkedin } from 'lucide-react';
+import { Menu, X, Github, Linkedin, FileText } from 'lucide-react';
 import { ThemeToggle } from './ThemeToggle';
 
 const Navbar = () => {
@@ -78,12 +78,30 @@ const Navbar = () => {
               >
                 <Linkedin size={20} />
               </a>
+              <a 
+                href="https://drive.google.com/file/d/1leXRA5M61I4nziQzX8AtsRccU00caiI7/view?usp=sharing" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors"
+                aria-label="Resume"
+              >
+                <FileText size={20} />
+              </a>
               <ThemeToggle />
             </div>
           </div>
 
           {/* Mobile menu button */}
           <div className="flex items-center md:hidden">
+            <a 
+              href="https://drive.google.com/file/d/1leXRA5M61I4nziQzX8AtsRccU00caiI7/view?usp=sharing" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="mr-2 text-muted-foreground hover:text-primary transition-colors"
+              aria-label="Resume"
+            >
+              <FileText size={20} />
+            </a>
             <ThemeToggle />
             <button 
               className="ml-2 text-foreground" 

@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Mail, Phone, Send } from 'lucide-react';
 import { toast } from '@/components/ui/use-toast';
@@ -20,15 +19,23 @@ const Contact = () => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
+    // Create mailto link with form data
+    const subject = `Message from ${formData.name}`;
+    const body = `${formData.message}\n\nFrom: ${formData.email}`;
+    const mailtoLink = `mailto:pratiksatishpawar@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+    
+    // Show toast and reset form
     setTimeout(() => {
       toast({
-        title: "Message sent!",
-        description: "Thanks for reaching out. I'll get back to you soon.",
+        title: "Opening email client",
+        description: "Your message is ready to be sent from your email app.",
       });
       setFormData({ name: '', email: '', message: '' });
       setIsSubmitting(false);
-    }, 1500);
+    }, 500);
   };
 
   return (
@@ -150,7 +157,7 @@ const Contact = () => {
                     <p className="text-muted-foreground mb-4">Follow me on:</p>
                     <div className="flex space-x-4">
                       <a 
-                        href="https://github.com/" 
+                        href="https://github.com/pratikpwr" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="bg-muted p-3 rounded-full text-muted-foreground hover:bg-primary hover:text-white transition-colors"
@@ -162,7 +169,7 @@ const Contact = () => {
                         </svg>
                       </a>
                       <a 
-                        href="https://linkedin.com/" 
+                        href="https://www.linkedin.com/in/pratikpwr/" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="bg-muted p-3 rounded-full text-muted-foreground hover:bg-primary hover:text-white transition-colors"
