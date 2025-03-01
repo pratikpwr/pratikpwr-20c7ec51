@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Mail, Phone, Send } from 'lucide-react';
 import { toast } from '@/components/ui/use-toast';
@@ -5,7 +6,6 @@ import { toast } from '@/components/ui/use-toast';
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -21,7 +21,7 @@ const Contact = () => {
     
     // Create mailto link with form data
     const subject = `Message from ${formData.name}`;
-    const body = `${formData.message}\n\nFrom: ${formData.email}`;
+    const body = `${formData.message}\n\nRegards,\n${formData.name}`;
     const mailtoLink = `mailto:pratiksatishpawar@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     
     // Open email client
@@ -33,7 +33,7 @@ const Contact = () => {
         title: "Opening email client",
         description: "Your message is ready to be sent from your email app.",
       });
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', message: '' });
       setIsSubmitting(false);
     }, 500);
   };
@@ -60,22 +60,6 @@ const Contact = () => {
                   onChange={handleChange}
                   className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/50 focus:border-primary focus:outline-none transition-colors"
                   placeholder="Your name"
-                  required
-                />
-              </div>
-              
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/50 focus:border-primary focus:outline-none transition-colors"
-                  placeholder="Your email"
                   required
                 />
               </div>
