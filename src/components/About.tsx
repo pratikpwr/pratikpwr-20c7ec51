@@ -1,7 +1,7 @@
 
 const About = () => {
   return (
-    <section id="about" className="py-20 bg-muted/30">
+    <section id="about" className="py-20 bg-muted/30 gradient-bg">
       <div className="section-container">
         <h2 className="section-title">About Me</h2>
         <p className="section-subtitle">Technology-driven professional with 3 years of experience in Mobile Application Development</p>
@@ -14,7 +14,7 @@ const About = () => {
               <div className="relative glass-card p-1 overflow-hidden">
                 <div className="aspect-[4/5] rounded-xl overflow-hidden">
                   <img 
-                    src="/lovable-uploads/1ef5d162-32de-4d50-a713-8c82b1ce5ce3.png" 
+                    src="/lovable-uploads/4eb24dff-f123-487e-a900-2cf73b2ed0c8.png" 
                     alt="Pratik Pawar speaking at Flutter Nashik event" 
                     className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-105"
                   />

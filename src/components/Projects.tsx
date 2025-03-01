@@ -43,7 +43,7 @@ const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
   
   return (
-    <section id="projects" className="py-20 bg-muted/30">
+    <section id="projects" className="py-20 bg-muted/30 gradient-bg">
       <div className="section-container">
         <h2 className="section-title">Personal Projects</h2>
         <p className="section-subtitle">A selection of my personal Flutter applications</p>

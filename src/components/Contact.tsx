@@ -32,7 +32,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-muted/30">
+    <section id="contact" className="py-20 bg-muted/30 gradient-bg">
       <div className="section-container">
         <h2 className="section-title">Get In Touch</h2>
         <p className="section-subtitle">Have a project in mind or just want to say hello? Feel free to reach out!</p>

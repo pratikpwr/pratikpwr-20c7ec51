@@ -61,7 +61,7 @@ const coreCompetencies = [
 
 const Skills = () => {
   return (
-    <section id="skills" className="py-20">
+    <section id="skills" className="py-20 gradient-bg">
       <div className="section-container">
         <h2 className="section-title">Skills & Competencies</h2>
         <p className="section-subtitle">My technical expertise and core competencies</p>

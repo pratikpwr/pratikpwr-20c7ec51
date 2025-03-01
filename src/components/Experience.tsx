@@ -64,7 +64,7 @@ const Experience = () => {
   const [activeTab, setActiveTab] = useState(experiences[0].id);
   
   return (
-    <section id="experience" className="py-20">
+    <section id="experience" className="py-20 gradient-bg">
       <div className="section-container">
         <h2 className="section-title">Work Experience</h2>
         <p className="section-subtitle">My professional journey in mobile application development</p>

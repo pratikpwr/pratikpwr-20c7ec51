@@ -160,4 +160,47 @@
     animation-delay: 0.5s;
     opacity: 0;
   }
+  
+  /* NEW: Animated gradient background for sections */
+  .gradient-bg {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .gradient-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(120deg, rgba(76, 77, 240, 0.08), rgba(66, 186, 150, 0.08), rgba(76, 77, 240, 0.08));
+    background-size: 300% 300%;
+    animation: gradientMove 15s ease infinite;
+    z-index: -1;
+  }
+  
+  @keyframes gradientMove {
+    0% {
+      background-position: 0% 50%;
+      background-size: 100% 100%;
+    }
+    50% {
+      background-position: 100% 50%;
+      background-size: 150% 150%;
+    }
+    100% {
+      background-position: 0% 50%;
+      background-size: 100% 100%;
+    }
+  }
+  
+  /* Responsive profile picture */
+  @media (min-aspect-ratio: 16/9) {
+    .profile-img {
+      height: 320px !important;
+      width: 320px !important;
+    }
+  }
 }
+

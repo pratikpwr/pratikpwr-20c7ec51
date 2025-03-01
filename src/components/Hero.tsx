@@ -3,7 +3,7 @@ import { ArrowDownCircle } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-16 pb-20 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center pt-16 pb-20 overflow-hidden gradient-bg">
       {/* Background elements */}
       <div className="absolute top-0 left-0 w-full h-full -z-10 overflow-hidden">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full filter blur-3xl animate-float"></div>
@@ -17,7 +17,7 @@ const Hero = () => {
             <div className="flex justify-center md:justify-start animate-fade-in reveal-delay-1 order-1 md:order-1">
               <div className="relative">
                 <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary/30 to-secondary/20 blur-lg"></div>
-                <div className="relative h-64 w-64 md:h-80 md:w-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                <div className="relative h-64 w-64 md:h-80 md:w-80 profile-img rounded-full overflow-hidden border-4 border-white shadow-xl">
                   <img 
                     src="/lovable-uploads/400afafe-afd6-48ef-b1ae-4454b493c39a.png" 
                     alt="Pratik Pawar" 
