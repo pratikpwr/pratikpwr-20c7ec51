@@ -96,7 +96,7 @@ const Skills = () => {
           </div>
         </div>
         
-        {/* Core Competencies */}
+        {/* Core Competencies - Updated background color for dark mode */}
         <div className="mt-16">
           <h3 className="text-2xl font-bold font-display text-center mb-6">Core Competencies</h3>
           
@@ -107,7 +107,7 @@ const Skills = () => {
                 className="relative group"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary/30 rounded-xl blur-sm opacity-60 group-hover:opacity-100 transition-opacity"></div>
-                <div className="relative flex items-center p-4 bg-white/80 backdrop-blur-sm border border-white/20 rounded-xl shadow-sm h-full group-hover:transform group-hover:-translate-y-1 transition-transform">
+                <div className="relative flex items-center p-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-white/20 rounded-xl shadow-sm h-full group-hover:transform group-hover:-translate-y-1 transition-transform">
                   <p className="font-medium">{competency}</p>
                 </div>
               </div>
