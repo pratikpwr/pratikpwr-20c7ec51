@@ -6,10 +6,25 @@ import { ThemeToggle } from './ThemeToggle';
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
+      
+      // Determine which section is currently in view
+      const sections = document.querySelectorAll('section[id]');
+      const scrollPosition = window.scrollY + 100; // offset to trigger earlier
+
+      sections.forEach((section) => {
+        const sectionId = section.getAttribute('id') || '';
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+          setActiveSection(sectionId);
+        }
+      });
     };
     
     window.addEventListener('scroll', handleScroll);
@@ -52,7 +67,11 @@ const Navbar = () => {
               <a 
                 key={link.name} 
                 href={link.href} 
-                className="nav-link font-medium"
+                className={`nav-link font-medium ${
+                  activeSection === link.href.substring(1) && link.name !== 'Home'
+                    ? 'text-primary after:w-full'
+                    : ''
+                }`}
               >
                 {link.name}
               </a>
@@ -122,7 +141,11 @@ const Navbar = () => {
               <a 
                 key={link.name} 
                 href={link.href} 
-                className="block py-2 font-medium hover:text-primary transition-colors"
+                className={`block py-2 font-medium hover:text-primary transition-colors ${
+                  activeSection === link.href.substring(1) && link.name !== 'Home'
+                    ? 'text-primary'
+                    : ''
+                }`}
                 onClick={closeMenu}
               >
                 {link.name}
