@@ -6,6 +6,7 @@ import { toast } from '@/components/ui/use-toast';
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -15,27 +16,44 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Create mailto link with form data
-    const subject = `Message from ${formData.name}`;
-    const body = `${formData.message}\n\nRegards,\n${formData.name}`;
-    const mailtoLink = `mailto:pratiksatishpawar@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    
-    // Open email client
-    window.location.href = mailtoLink;
-    
-    // Show toast and reset form
-    setTimeout(() => {
-      toast({
-        title: "Opening email client",
-        description: "Your message is ready to be sent from your email app.",
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          access_key: '1fb6ec4f-af5f-49d4-870e-28eed2430339',
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `Contact Form Message from ${formData.name}`,
+        }),
       });
-      setFormData({ name: '', message: '' });
+
+      if (response.ok) {
+        toast({
+          title: "Message sent successfully!",
+          description: "Thank you for your message. I'll get back to you soon.",
+        });
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      toast({
+        title: "Error sending message",
+        description: "Please try again or contact me directly via email.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 500);
+    }
   };
 
   return (
@@ -60,6 +78,22 @@ const Contact = () => {
                   onChange={handleChange}
                   className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/50 focus:border-primary focus:outline-none transition-colors"
                   placeholder="Your name"
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium mb-2">
+                  Email
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 rounded-lg border border-border bg-background focus:ring-2 focus:ring-primary/50 focus:border-primary focus:outline-none transition-colors"
+                  placeholder="your.email@example.com"
                   required
                 />
               </div>
