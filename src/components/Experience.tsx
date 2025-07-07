@@ -50,7 +50,7 @@ const experiences: ExperienceItem[] = [
         name: "EatOS POS",
         description: "Comprehensive restaurant management system with POS, inventory tracking, payments, menu managment.",
         image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
-        technologies: ["Flutter", "Dart", "Card Readers", "Stripe", "Adyen", "Native Android/iOS"],
+        technologies: ["Flutter", "Dart", "Stripe", "Adyen", "Native Android/iOS"],
         playStoreLink: "https://play.google.com/store/apps/details?id=com.eatos.pos"
       },
       {
@@ -66,7 +66,7 @@ const experiences: ExperienceItem[] = [
         name: "Point of Purchase",
         description: "eatOS Point of Purchase streamlines restaurant transactions with expert support and Handheld  Point of Sale technology. Speed up orders and payments on any iOS or Android device, improving guest experience and efficiency.",
         image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop",
-        technologies: ["Flutter", "Dart", "Websockets"],
+        technologies: ["Flutter", "Dart", "Card Readers", "NFC Payments"],
         playStoreLink: "https://play.google.com/store/apps/details?id=com.eatos.pos"
       }
     ]
@@ -85,20 +85,20 @@ const experiences: ExperienceItem[] = [
     ],
     apps: [
       {
-        id: "farmsetu-ecommerce",
-        name: "FarmSetu Marketplace",
-        description: "Agricultural e-commerce platform connecting farmers directly with buyers, featuring crop listings, price discovery, and logistics integration.",
+        id: "farmsetu-setufarm",
+        name: "SetuFarm",
+        description: "Farmer facing application consisting multiple launchpads such as E-commerce, Farm's Finance & Operations managment, Weather, Articles and Courses for Farmers.",
         image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&h=300&fit=crop",
-        technologies: ["Flutter", "Firebase", "Razorpay", "Google Maps", "Analytics"],
-        playStoreLink: "https://play.google.com/store/apps/details?id=com.farmsetu.marketplace"
+        technologies: ["Flutter", "Dart", "Pay U", "Google Maps", "Analytics", "Clean Architecture"],
+        playStoreLink: "https://play.google.com/store/apps/details?id=co.setu.farm"
       },
       {
-        id: "farmsetu-learning",
-        name: "FarmSetu Academy",
-        description: "Educational platform providing agricultural courses, expert guidance, and community forums for farmers to enhance their farming techniques.",
+        id: "farmsetu-setutrade",
+        name: "SetuTrade",
+        description: "Buyers and Retail consumer facing application for recording incoming commodity trades for dedicated markets",
         image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=300&fit=crop",
-        technologies: ["Flutter", "Video Streaming", "Firebase", "Push Notifications"],
-        playStoreLink: "https://play.google.com/store/apps/details?id=com.farmsetu.academy"
+        technologies: ["Flutter", "Dart", "Firebase", "Push Notifications", "GraphQl"],
+        playStoreLink: "https://play.google.com/store/apps/details?id=co.setu.trade"
       }
     ]
   },
