@@ -136,7 +136,7 @@ const experiences: ExperienceItem[] = [
 ];
 
 const Experience = () => {
-  const [activeTab, setActiveTab] = useState(experiences[0].id);
+  const [expandedCard, setExpandedCard] = useState<string | null>(null);
   
   return (
     <section id="experience" className="py-20 gradient-bg">
@@ -144,100 +144,142 @@ const Experience = () => {
         <h2 className="section-title">Work Experience</h2>
         <p className="section-subtitle">My professional journey in mobile application development</p>
         
-        <div className="grid md:grid-cols-12 gap-8 mt-8">
-          {/* Tabs - modified to prevent horizontal overflow on mobile */}
-          <div className="md:col-span-4 lg:col-span-3">
-            <div className="flex md:flex-col flex-wrap overflow-x-visible md:overflow-x-visible space-x-2 md:space-x-0 md:space-y-2 pb-4 md:pb-0">
-              {experiences.map((exp) => (
-                <button
-                  key={exp.id}
-                  onClick={() => setActiveTab(exp.id)}
-                  className={`px-3 py-2 md:px-4 md:py-3 text-left rounded-lg transition-all text-sm md:text-base ${
-                    activeTab === exp.id
-                      ? "bg-primary/10 text-primary font-medium"
-                      : "hover:bg-muted"
-                  }`}
-                >
-                  {exp.company}
-                </button>
-              ))}
-            </div>
-          </div>
+        {/* Timeline Container */}
+        <div className="relative max-w-6xl mx-auto mt-16">
+          {/* Timeline Line */}
+          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-primary transform md:-translate-x-px"></div>
           
-          {/* Content */}
-          <div className="md:col-span-8 lg:col-span-9">
-            {experiences.map((exp) => (
+          {/* Experience Cards */}
+          <div className="space-y-12">
+            {experiences.map((exp, index) => (
               <div
                 key={exp.id}
-                className={`space-y-6 transition-all ${
-                  activeTab === exp.id ? "animate-fade-in-right block" : "hidden"
-                }`}
+                className={`relative flex items-center ${
+                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                } flex-col md:justify-between`}
               >
-                <div>
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between">
-                    <div>
-                      <h3 className="text-xl md:text-2xl font-bold font-display">{exp.role}</h3>
-                      <div className="flex items-center mt-1">
-                        <span className="text-md md:text-lg text-primary">{exp.company}</span>
-                        {exp.link && (
-                          <a
-                            href={exp.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="ml-2 text-muted-foreground hover:text-primary transition-colors"
-                          >
-                            <ExternalLink size={16} />
-                          </a>
+                {/* Timeline Dot */}
+                <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg transform md:-translate-x-1/2 z-10">
+                  <div className="absolute inset-1 bg-primary rounded-full animate-pulse"></div>
+                </div>
+                
+                {/* Content Card */}
+                <div className={`w-full md:w-5/12 ml-12 md:ml-0 ${
+                  index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'
+                }`}>
+                  <div 
+                    className="glass-card hover-card p-6 cursor-pointer group"
+                    onClick={() => setExpandedCard(expandedCard === exp.id ? null : exp.id)}
+                  >
+                    {/* Header */}
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex-1">
+                        <h3 className="text-xl font-bold font-display group-hover:text-primary transition-colors">
+                          {exp.role}
+                        </h3>
+                        <div className="flex items-center mt-1 mb-2">
+                          <span className="text-lg text-primary font-medium">{exp.company}</span>
+                          {exp.link && (
+                            <a
+                              href={exp.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="ml-2 text-muted-foreground hover:text-primary transition-colors"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <ExternalLink size={16} />
+                            </a>
+                          )}
+                        </div>
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-sm text-muted-foreground">
+                          <span className="bg-primary/10 text-primary px-3 py-1 rounded-full font-medium">
+                            {exp.period}
+                          </span>
+                          <span>{exp.location}</span>
+                        </div>
+                      </div>
+                      
+                      {/* Expand/Collapse Indicator */}
+                      <div className={`ml-4 transform transition-transform duration-300 ${
+                        expandedCard === exp.id ? 'rotate-180' : ''
+                      }`}>
+                        <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
+                          <div className="w-4 h-4 border-r-2 border-b-2 border-primary transform rotate-45 -translate-y-0.5"></div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Expandable Content */}
+                    <div className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                      expandedCard === exp.id 
+                        ? 'max-h-screen opacity-100' 
+                        : 'max-h-0 opacity-0'
+                    }`}>
+                      <div className="pt-4 border-t border-border/50">
+                        {/* Responsibilities */}
+                        <div className="mb-6">
+                          <h4 className="font-semibold text-foreground mb-3 flex items-center">
+                            <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                            Responsibilities
+                          </h4>
+                          <ul className="space-y-2 text-muted-foreground">
+                            {exp.description.map((item, idx) => (
+                              <li key={idx} className="flex items-start">
+                                <span className="text-primary mr-3 mt-2">•</span>
+                                <span className="leading-relaxed">{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        
+                        {/* Achievements */}
+                        {exp.achievements && (
+                          <div className="mb-6">
+                            <h4 className="font-semibold text-foreground mb-3 flex items-center">
+                              <div className="w-2 h-2 bg-secondary rounded-full mr-3"></div>
+                              Key Achievements
+                            </h4>
+                            <ul className="space-y-2 text-muted-foreground">
+                              {exp.achievements.map((achievement, idx) => (
+                                <li key={idx} className="flex items-start">
+                                  <span className="text-secondary mr-3 mt-2">★</span>
+                                  <span className="leading-relaxed">{achievement}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                        
+                        {/* Apps & Projects */}
+                        {exp.apps && exp.apps.length > 0 && (
+                          <div>
+                            <h4 className="font-semibold text-foreground mb-4 flex items-center">
+                              <div className="w-2 h-2 bg-primary rounded-full mr-3"></div>
+                              Apps & Projects
+                            </h4>
+                            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-4">
+                              {exp.apps.map((app) => (
+                                <AppCard
+                                  key={app.id}
+                                  name={app.name}
+                                  description={app.description}
+                                  image={app.image}
+                                  technologies={app.technologies}
+                                  playStoreLink={app.playStoreLink}
+                                  appStoreLink={app.appStoreLink}
+                                  demoLink={app.demoLink}
+                                />
+                              ))}
+                            </div>
+                          </div>
                         )}
                       </div>
                     </div>
-                    <div className="text-left sm:text-right mt-2 sm:mt-0">
-                      <span className="text-muted-foreground">{exp.period}</span>
-                      <p className="text-sm text-muted-foreground">{exp.location}</p>
-                    </div>
                   </div>
                 </div>
                 
-                <div className="text-muted-foreground">
-                  <h4 className="font-medium text-foreground mb-2">Responsibilities:</h4>
-                  <ul className="space-y-2 list-disc pl-5">
-                    {exp.description.map((item, index) => (
-                      <li key={index}>{item}</li>
-                    ))}
-                  </ul>
-                  
-                  {exp.achievements && (
-                    <div className="mt-4">
-                      <h4 className="font-medium text-foreground mb-2">Key Achievements:</h4>
-                      <ul className="space-y-2 list-disc pl-5">
-                        {exp.achievements.map((achievement, index) => (
-                          <li key={index}>{achievement}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                </div>
-                
-                {/* Apps & Projects */}
-                {exp.apps && exp.apps.length > 0 && (
-                  <div className="mt-8">
-                    <h4 className="font-medium text-foreground mb-4">Apps & Projects:</h4>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                      {exp.apps.map((app) => (
-                        <AppCard
-                          key={app.id}
-                          name={app.name}
-                          description={app.description}
-                          image={app.image}
-                          technologies={app.technologies}
-                          playStoreLink={app.playStoreLink}
-                          appStoreLink={app.appStoreLink}
-                          demoLink={app.demoLink}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                )}
+                {/* Empty space for alternating layout */}
+                <div className="hidden md:block md:w-5/12"></div>
               </div>
             ))}
           </div>
