@@ -46,21 +46,28 @@ const experiences: ExperienceItem[] = [
     ],
     apps: [
       {
-        id: "eatos-merchant",
-        name: "EatOS Merchant",
-        description: "Comprehensive restaurant management system with POS, inventory tracking, and analytics for restaurant owners and staff.",
+        id: "eatos-pos",
+        name: "EatOS POS",
+        description: "Comprehensive restaurant management system with POS, inventory tracking, payments, menu managment.",
         image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
-        technologies: ["Flutter", "Dart", "Firebase", "Stripe", "Square", "Native Android/iOS"],
-        playStoreLink: "https://play.google.com/store/apps/details?id=com.eatos.merchant"
+        technologies: ["Flutter", "Dart", "Card Readers", "Stripe", "Adyen", "Native Android/iOS"],
+        playStoreLink: "https://play.google.com/store/apps/details?id=com.eatos.pos"
       },
       {
-        id: "eatos-customer",
-        name: "EatOS Customer",
-        description: "User-friendly food ordering app with real-time tracking, multiple payment options, and loyalty rewards.",
+        id: "eatos-kds",
+        name: "Kitchen Display System",
+        description: "A KDS appplication for streamlining kitchen communication. Supports POS, POP, Kiost and Online Ordering system with synchronized ticketing.",
         image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop",
-        technologies: ["Flutter", "Dart", "Firebase", "Google Maps", "Push Notifications"],
-        playStoreLink: "https://play.google.com/store/apps/details?id=com.eatos.customer",
-        appStoreLink: "https://apps.apple.com/app/eatos/id123456789"
+        technologies: ["Flutter", "Dart", "Websockets"],
+        playStoreLink: "https://play.google.com/store/apps/details?id=com.poslabs.eoskds"
+      },
+      {
+        id: "eatos-pop",
+        name: "Point of Purchase",
+        description: "eatOS Point of Purchase streamlines restaurant transactions with expert support and Handheld  Point of Sale technology. Speed up orders and payments on any iOS or Android device, improving guest experience and efficiency.",
+        image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop",
+        technologies: ["Flutter", "Dart", "Websockets"],
+        playStoreLink: "https://play.google.com/store/apps/details?id=com.eatos.pos"
       }
     ]
   },
