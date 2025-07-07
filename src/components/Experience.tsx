@@ -49,7 +49,7 @@ const experiences: ExperienceItem[] = [
         id: "eatos-pos",
         name: "EatOS POS",
         description: "Comprehensive restaurant management system with POS, inventory tracking, payments, menu managment, employee managment.",
-        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
+        image: "/lovable-uploads/a7d45038-3e04-457c-a547-5fdf42e7114f.png",
         technologies: ["Flutter", "Dart", "Stripe", "Adyen", "Native Android/iOS"],
         playStoreLink: "https://play.google.com/store/apps/details?id=com.eatos.pos"
       },
@@ -57,7 +57,7 @@ const experiences: ExperienceItem[] = [
         id: "eatos-kds",
         name: "Kitchen Display System",
         description: "A KDS appplication for streamlining kitchen communication. Supports POS, POP, Kiost and Online Ordering system with synchronized ticketing.",
-        image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop",
+        image: "/lovable-uploads/5961ccef-af0f-45d3-a9d1-9bf51f46c602.png",
         technologies: ["Flutter", "Dart", "Websockets"],
         playStoreLink: "https://play.google.com/store/apps/details?id=com.poslabs.eoskds"
       },
@@ -65,7 +65,7 @@ const experiences: ExperienceItem[] = [
         id: "eatos-pop",
         name: "Point of Purchase",
         description: "A application for handheld devices streamlines restaurant transactions by speeding up orders and payments on any iOS or Android device, improving guest experience and efficiency.",
-        image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop",
+        image: "/lovable-uploads/89bef589-3fbb-4258-a66d-08bb004a2eca.png",
         technologies: ["Flutter", "Dart", "Card Readers", "NFC Payments"],
         playStoreLink: "https://play.google.com/store/apps/details?id=com.eatos.pos"
       }
