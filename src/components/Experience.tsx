@@ -164,8 +164,8 @@ const Experience = () => {
                 </div>
                 
                 {/* Content Card */}
-                <div className={`w-full md:w-5/12 ml-12 md:ml-0 ${
-                  index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'
+                <div className={`w-full md:w-7/12 lg:w-6/12 ml-12 md:ml-0 ${
+                  index % 2 === 0 ? 'md:mr-auto md:pr-6' : 'md:ml-auto md:pl-6'
                 }`}>
                   <div 
                     className={`glass-card hover-card cursor-pointer group transition-all duration-300 ${
@@ -292,7 +292,7 @@ const Experience = () => {
                 </div>
                 
                 {/* Empty space for alternating layout */}
-                <div className="hidden md:block md:w-5/12"></div>
+                <div className="hidden md:block md:w-5/12 lg:w-6/12"></div>
               </div>
             ))}
           </div>
