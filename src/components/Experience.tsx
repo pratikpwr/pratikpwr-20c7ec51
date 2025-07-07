@@ -88,7 +88,7 @@ const experiences: ExperienceItem[] = [
         id: "farmsetu-setufarm",
         name: "SetuFarm",
         description: "Farmer facing application consisting multiple launchpads such as E-commerce, Farm's Finance & Operations managment, Weather, Articles and Courses for Farmers.",
-        image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=400&h=300&fit=crop",
+        image: "/lovable-uploads/7ce714b9-8917-48b6-b901-41fc405ec5d0.png",
         technologies: ["Flutter", "Dart", "Pay U", "Google Maps", "Analytics", "Clean Architecture"],
         playStoreLink: "https://play.google.com/store/apps/details?id=co.setu.farm"
       },
@@ -96,7 +96,7 @@ const experiences: ExperienceItem[] = [
         id: "farmsetu-setutrade",
         name: "SetuTrade",
         description: "Buyers and Retail consumer facing application for recording incoming commodity trades for dedicated markets",
-        image: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=400&h=300&fit=crop",
+        image: "/lovable-uploads/5ea66a78-0d88-415f-82e0-7d6b3d95aaa8.png",
         technologies: ["Flutter", "Dart", "Firebase", "Push Notifications", "GraphQl"],
         playStoreLink: "https://play.google.com/store/apps/details?id=co.setu.trade"
       }
@@ -119,7 +119,7 @@ const experiences: ExperienceItem[] = [
         id: "nearme-app",
         name: "Nearme",
         description: "Home Axis Nearme is a unified platform for all the services like home cleaning, plumbing, carpentry, repairs, painting, etc.",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
+        image: "/lovable-uploads/2a2af9bb-2f1a-4e31-8013-20547be51585.png",
         technologies: ["Flutter", "Google Maps", "Rest APIs", "Bloc/Provider"],
         playStoreLink: "https://play.google.com/store/apps/details?id=com.dcdevelopers.nearme"
       },
