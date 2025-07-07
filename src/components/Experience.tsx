@@ -1,5 +1,4 @@
 
-import { useState } from 'react';
 import { ExternalLink } from 'lucide-react';
 import AppCard from './AppCard';
 
@@ -136,8 +135,6 @@ const experiences: ExperienceItem[] = [
 ];
 
 const Experience = () => {
-  const [expandedCard, setExpandedCard] = useState<string | null>(null);
-  
   return (
     <section id="experience" className="py-20 gradient-bg">
       <div className="section-container">
@@ -167,30 +164,22 @@ const Experience = () => {
                 <div className={`w-full md:w-7/12 lg:w-6/12 ml-12 md:ml-0 ${
                   index % 2 === 0 ? 'md:mr-auto md:pr-6' : 'md:ml-auto md:pl-6'
                 }`}>
-                  <div 
-                    className={`glass-card hover-card cursor-pointer group transition-all duration-300 ${
-                      expandedCard === exp.id 
-                        ? 'ring-2 ring-primary/20 shadow-2xl scale-105' 
-                        : 'hover:shadow-xl hover:-translate-y-1'
-                    }`}
-                    onClick={() => setExpandedCard(expandedCard === exp.id ? null : exp.id)}
-                  >
+                  <div className="glass-card hover-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
                     {/* Header */}
                     <div className="p-6 pb-4">
                       <div className="flex items-start justify-between mb-4">
                         <div className="flex-1">
-                          <h3 className="text-xl font-bold font-display group-hover:text-primary transition-colors">
+                          <h3 className="text-xl font-bold font-display text-primary">
                             {exp.role}
                           </h3>
                           <div className="flex items-center mt-2 mb-3">
-                            <span className="text-lg text-primary font-medium">{exp.company}</span>
+                            <span className="text-lg text-foreground font-medium">{exp.company}</span>
                             {exp.link && (
                               <a
                                 href={exp.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="ml-2 text-muted-foreground hover:text-primary transition-colors p-1 hover:bg-primary/10 rounded-full"
-                                onClick={(e) => e.stopPropagation()}
                               >
                                 <ExternalLink size={16} />
                               </a>
@@ -205,87 +194,69 @@ const Experience = () => {
                             </span>
                           </div>
                         </div>
-                        
-                        {/* Expand/Collapse Indicator */}
-                        <div className={`ml-4 transform transition-all duration-300 ${
-                          expandedCard === exp.id ? 'rotate-180 scale-110' : 'group-hover:scale-110'
-                        }`}>
-                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/20 to-secondary/20 flex items-center justify-center border border-primary/20">
-                            <div className="w-4 h-4 border-r-2 border-b-2 border-primary transform rotate-45 -translate-y-0.5"></div>
-                          </div>
-                        </div>
                       </div>
                     </div>
                     
-                    {/* Expandable Content */}
-                    <div className={`overflow-hidden transition-all duration-700 ease-out ${
-                      expandedCard === exp.id 
-                        ? 'max-h-[2000px] opacity-100' 
-                        : 'max-h-0 opacity-0'
-                    }`}>
-                      <div className="px-6 pb-6">
-                        <div className="bg-gradient-to-br from-muted/30 to-primary/5 rounded-2xl p-6 space-y-8">
-                          {/* Responsibilities */}
+                    {/* Content - Always Visible */}
+                    <div className="px-6 pb-6">
+                      <div className="bg-gradient-to-br from-muted/30 to-primary/5 rounded-2xl p-6 space-y-8">
+                        {/* Responsibilities */}
+                        <div className="space-y-4">
+                          <h4 className="font-bold text-foreground text-lg flex items-center">
+                            <div className="w-3 h-3 bg-gradient-to-r from-primary to-secondary rounded-full mr-3"></div>
+                            Responsibilities
+                          </h4>
+                          <div className="space-y-3">
+                            {exp.description.map((item, idx) => (
+                              <div key={idx} className="flex items-start bg-background/60 rounded-xl p-4 hover:bg-background/80 transition-colors">
+                                <div className="w-2 h-2 bg-primary rounded-full mr-4 mt-2 flex-shrink-0"></div>
+                                <span className="text-muted-foreground leading-relaxed">{item}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                        
+                        {/* Achievements */}
+                        {exp.achievements && (
                           <div className="space-y-4">
                             <h4 className="font-bold text-foreground text-lg flex items-center">
-                              <div className="w-3 h-3 bg-gradient-to-r from-primary to-secondary rounded-full mr-3"></div>
-                              Responsibilities
+                              <div className="w-3 h-3 bg-gradient-to-r from-secondary to-primary rounded-full mr-3"></div>
+                              Key Achievements
                             </h4>
                             <div className="space-y-3">
-                              {exp.description.map((item, idx) => (
-                                <div key={idx} className="flex items-start bg-background/60 rounded-xl p-4 hover:bg-background/80 transition-colors">
-                                  <div className="w-2 h-2 bg-primary rounded-full mr-4 mt-2 flex-shrink-0"></div>
-                                  <span className="text-muted-foreground leading-relaxed">{item}</span>
+                              {exp.achievements.map((achievement, idx) => (
+                                <div key={idx} className="flex items-start bg-secondary/10 rounded-xl p-4 border border-secondary/20">
+                                  <div className="text-secondary mr-4 mt-1 text-lg flex-shrink-0">★</div>
+                                  <span className="text-foreground leading-relaxed font-medium">{achievement}</span>
                                 </div>
                               ))}
                             </div>
                           </div>
-                          
-                          {/* Achievements */}
-                          {exp.achievements && (
-                            <div className="space-y-4">
-                              <h4 className="font-bold text-foreground text-lg flex items-center">
-                                <div className="w-3 h-3 bg-gradient-to-r from-secondary to-primary rounded-full mr-3"></div>
-                                Key Achievements
-                              </h4>
-                              <div className="space-y-3">
-                                {exp.achievements.map((achievement, idx) => (
-                                  <div key={idx} className="flex items-start bg-secondary/10 rounded-xl p-4 border border-secondary/20">
-                                    <div className="text-secondary mr-4 mt-1 text-lg flex-shrink-0">★</div>
-                                    <span className="text-foreground leading-relaxed font-medium">{achievement}</span>
-                                  </div>
-                                ))}
-                              </div>
+                        )}
+                        
+                        {/* Apps & Projects */}
+                        {exp.apps && exp.apps.length > 0 && (
+                          <div className="space-y-6">
+                            <h4 className="font-bold text-foreground text-lg flex items-center">
+                              <div className="w-3 h-3 bg-gradient-to-r from-primary to-secondary rounded-full mr-3"></div>
+                              Apps & Projects
+                            </h4>
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                              {exp.apps.map((app) => (
+                                <AppCard
+                                  key={app.id}
+                                  name={app.name}
+                                  description={app.description}
+                                  image={app.image}
+                                  technologies={app.technologies}
+                                  playStoreLink={app.playStoreLink}
+                                  appStoreLink={app.appStoreLink}
+                                  demoLink={app.demoLink}
+                                />
+                              ))}
                             </div>
-                          )}
-                          
-                          {/* Apps & Projects */}
-                          {exp.apps && exp.apps.length > 0 && (
-                            <div className="space-y-6">
-                              <h4 className="font-bold text-foreground text-lg flex items-center">
-                                <div className="w-3 h-3 bg-gradient-to-r from-primary to-secondary rounded-full mr-3"></div>
-                                Apps & Projects
-                              </h4>
-                              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                                {exp.apps.map((app, appIdx) => (
-                                  <div key={app.id} className={`transform transition-all duration-500 ${
-                                    expandedCard === exp.id ? 'animate-fade-in scale-100' : 'scale-95'
-                                  }`} style={{ animationDelay: `${appIdx * 100}ms` }}>
-                                    <AppCard
-                                      name={app.name}
-                                      description={app.description}
-                                      image={app.image}
-                                      technologies={app.technologies}
-                                      playStoreLink={app.playStoreLink}
-                                      appStoreLink={app.appStoreLink}
-                                      demoLink={app.demoLink}
-                                    />
-                                  </div>
-                                ))}
-                              </div>
-                            </div>
-                          )}
-                        </div>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </div>
