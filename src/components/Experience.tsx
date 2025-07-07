@@ -118,18 +118,18 @@ const experiences: ExperienceItem[] = [
       {
         id: "nearme-app",
         name: "Nearme",
-        description: "Location-based discovery app helping users find nearby services, businesses, and events with real-time updates and user reviews.",
+        description: "Home Axis Nearme is a unified platform for all the services like home cleaning, plumbing, carpentry, repairs, painting, etc.",
         image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop",
-        technologies: ["Flutter", "Google Maps", "Firebase", "Location Services"],
-        playStoreLink: "https://play.google.com/store/apps/details?id=com.dreamcare.nearme"
+        technologies: ["Flutter", "Google Maps", "Rest APIs", "Bloc/Provider"],
+        playStoreLink: "https://play.google.com/store/apps/details?id=com.dcdevelopers.nearme"
       },
       {
         id: "police-patil",
         name: "Police Patil System",
         description: "Digital activity tracking system for village police officials with reporting, analytics, and administrative dashboard.",
         image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=400&h=300&fit=crop",
-        technologies: ["Flutter", "Web Dashboard", "Analytics", "Reporting"],
-        demoLink: "https://policepatil.dreamcaredevelopers.com"
+        technologies: ["Flutter", "Web Dashboard", "Analytics", "Bloc"],
+        playStoreLink: "https://play.google.com/store/apps/details?id=com.dcdevelopers.policepatil"
       }
     ]
   }
