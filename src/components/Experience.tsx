@@ -48,7 +48,7 @@ const experiences: ExperienceItem[] = [
       {
         id: "eatos-pos",
         name: "EatOS POS",
-        description: "Comprehensive restaurant management system with POS, inventory tracking, payments, menu managment.",
+        description: "Comprehensive restaurant management system with POS, inventory tracking, payments, menu managment, employee managment.",
         image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
         technologies: ["Flutter", "Dart", "Stripe", "Adyen", "Native Android/iOS"],
         playStoreLink: "https://play.google.com/store/apps/details?id=com.eatos.pos"
@@ -64,7 +64,7 @@ const experiences: ExperienceItem[] = [
       {
         id: "eatos-pop",
         name: "Point of Purchase",
-        description: "eatOS Point of Purchase streamlines restaurant transactions with expert support and Handheld  Point of Sale technology. Speed up orders and payments on any iOS or Android device, improving guest experience and efficiency.",
+        description: "A application for handheld devices streamlines restaurant transactions by speeding up orders and payments on any iOS or Android device, improving guest experience and efficiency.",
         image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=400&h=300&fit=crop",
         technologies: ["Flutter", "Dart", "Card Readers", "NFC Payments"],
         playStoreLink: "https://play.google.com/store/apps/details?id=com.eatos.pos"
