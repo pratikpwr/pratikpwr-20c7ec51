@@ -141,132 +141,126 @@ const Experience = () => {
         <h2 className="section-title">Work Experience</h2>
         <p className="section-subtitle">My professional journey in mobile application development</p>
         
-        {/* Timeline Container */}
-        <div className="relative max-w-6xl mx-auto mt-16">
-          {/* Timeline Line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-primary transform md:-translate-x-px"></div>
-          
-          {/* Experience Cards */}
-          <div className="space-y-12">
-            {experiences.map((exp, index) => (
-              <div
-                key={exp.id}
-                className={`relative flex items-center ${
-                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                } flex-col md:justify-between`}
-              >
-                {/* Timeline Dot */}
-                <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background shadow-lg transform md:-translate-x-1/2 z-10">
-                  <div className="absolute inset-1 bg-primary rounded-full animate-pulse"></div>
-                </div>
-                
-                {/* Content Card */}
-                <div className={`w-full md:w-7/12 lg:w-6/12 ml-12 md:ml-0 ${
-                  index % 2 === 0 ? 'md:mr-auto md:pr-6' : 'md:ml-auto md:pl-6'
-                }`}>
-                  <div className="glass-card hover-card hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                    {/* Header */}
-                    <div className="p-6 pb-4">
-                      <div className="flex items-start justify-between mb-4">
-                        <div className="flex-1">
-                          <h3 className="text-xl font-bold font-display text-primary">
-                            {exp.role}
-                          </h3>
-                          <div className="flex items-center mt-2 mb-3">
-                            <span className="text-lg text-foreground font-medium">{exp.company}</span>
-                            {exp.link && (
-                              <a
-                                href={exp.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="ml-2 text-muted-foreground hover:text-primary transition-colors p-1 hover:bg-primary/10 rounded-full"
-                              >
-                                <ExternalLink size={16} />
-                              </a>
-                            )}
-                          </div>
-                          <div className="flex flex-col sm:flex-row sm:items-center gap-3 text-sm">
-                            <span className="bg-gradient-to-r from-primary/20 to-secondary/20 text-primary px-4 py-2 rounded-full font-medium border border-primary/20">
-                              {exp.period}
-                            </span>
-                            <span className="text-muted-foreground bg-muted/50 px-3 py-1 rounded-full">
-                              {exp.location}
-                            </span>
-                          </div>
-                        </div>
+        {/* Experience Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16">
+          {experiences.map((exp, index) => (
+            <div
+              key={exp.id}
+              className={`glass-card hover-card transition-all duration-500 ${
+                index === 0 ? 'lg:col-span-2' : ''
+              }`}
+              style={{ animationDelay: `${index * 200}ms` }}
+            >
+              {/* Company Header */}
+              <div className="relative p-8 pb-6">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-bl-full"></div>
+                <div className="relative z-10">
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="flex-1">
+                      <h3 className="text-2xl font-bold font-display text-primary mb-2">
+                        {exp.company}
+                      </h3>
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="text-lg font-semibold text-foreground">{exp.role}</span>
+                        {exp.link && (
+                          <a
+                            href={exp.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-muted-foreground hover:text-primary transition-colors p-2 hover:bg-primary/10 rounded-full"
+                          >
+                            <ExternalLink size={18} />
+                          </a>
+                        )}
                       </div>
-                    </div>
-                    
-                    {/* Content - Always Visible */}
-                    <div className="px-6 pb-6">
-                      <div className="bg-gradient-to-br from-muted/30 to-primary/5 rounded-2xl p-6 space-y-8">
-                        {/* Responsibilities */}
-                        <div className="space-y-4">
-                          <h4 className="font-bold text-foreground text-lg flex items-center">
-                            <div className="w-3 h-3 bg-gradient-to-r from-primary to-secondary rounded-full mr-3"></div>
-                            Responsibilities
-                          </h4>
-                          <div className="space-y-3">
-                            {exp.description.map((item, idx) => (
-                              <div key={idx} className="flex items-start bg-background/60 rounded-xl p-4 hover:bg-background/80 transition-colors">
-                                <div className="w-2 h-2 bg-primary rounded-full mr-4 mt-2 flex-shrink-0"></div>
-                                <span className="text-muted-foreground leading-relaxed">{item}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                        
-                        {/* Achievements */}
-                        {exp.achievements && (
-                          <div className="space-y-4">
-                            <h4 className="font-bold text-foreground text-lg flex items-center">
-                              <div className="w-3 h-3 bg-gradient-to-r from-secondary to-primary rounded-full mr-3"></div>
-                              Key Achievements
-                            </h4>
-                            <div className="space-y-3">
-                              {exp.achievements.map((achievement, idx) => (
-                                <div key={idx} className="flex items-start bg-secondary/10 rounded-xl p-4 border border-secondary/20">
-                                  <div className="text-secondary mr-4 mt-1 text-lg flex-shrink-0">★</div>
-                                  <span className="text-foreground leading-relaxed font-medium">{achievement}</span>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        )}
-                        
-                        {/* Apps & Projects */}
-                        {exp.apps && exp.apps.length > 0 && (
-                          <div className="space-y-6">
-                            <h4 className="font-bold text-foreground text-lg flex items-center">
-                              <div className="w-3 h-3 bg-gradient-to-r from-primary to-secondary rounded-full mr-3"></div>
-                              Apps & Projects
-                            </h4>
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                              {exp.apps.map((app) => (
-                                <AppCard
-                                  key={app.id}
-                                  name={app.name}
-                                  description={app.description}
-                                  image={app.image}
-                                  technologies={app.technologies}
-                                  playStoreLink={app.playStoreLink}
-                                  appStoreLink={app.appStoreLink}
-                                  demoLink={app.demoLink}
-                                />
-                              ))}
-                            </div>
-                          </div>
-                        )}
+                      <div className="flex flex-wrap gap-3 text-sm">
+                        <span className="bg-gradient-to-r from-primary to-secondary text-white px-4 py-2 rounded-full font-medium shadow-lg">
+                          {exp.period}
+                        </span>
+                        <span className="bg-muted text-muted-foreground px-4 py-2 rounded-full font-medium">
+                          {exp.location}
+                        </span>
                       </div>
                     </div>
                   </div>
                 </div>
-                
-                {/* Empty space for alternating layout */}
-                <div className="hidden md:block md:w-5/12 lg:w-6/12"></div>
               </div>
-            ))}
-          </div>
+
+              {/* Content Sections */}
+              <div className="px-8 pb-8 space-y-8">
+                {/* Responsibilities */}
+                <div className="space-y-4">
+                  <h4 className="text-lg font-bold text-foreground flex items-center">
+                    <div className="w-4 h-4 bg-gradient-to-r from-primary to-secondary rounded-full mr-3"></div>
+                    Key Responsibilities
+                  </h4>
+                  <div className="grid gap-3">
+                    {exp.description.map((item, idx) => (
+                      <div key={idx} className="bg-gradient-to-r from-background/80 to-muted/30 rounded-xl p-4 border border-border/50 hover:border-primary/30 transition-colors">
+                        <div className="flex items-start">
+                          <div className="w-2 h-2 bg-primary rounded-full mr-4 mt-2 flex-shrink-0"></div>
+                          <span className="text-muted-foreground leading-relaxed">{item}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Achievements */}
+                {exp.achievements && (
+                  <div className="space-y-4">
+                    <h4 className="text-lg font-bold text-foreground flex items-center">
+                      <div className="w-4 h-4 bg-gradient-to-r from-secondary to-primary rounded-full mr-3"></div>
+                      Key Achievements
+                    </h4>
+                    <div className="space-y-3">
+                      {exp.achievements.map((achievement, idx) => (
+                        <div key={idx} className="bg-gradient-to-r from-secondary/10 to-primary/10 rounded-xl p-4 border border-secondary/20 hover:border-secondary/40 transition-colors">
+                          <div className="flex items-start">
+                            <div className="text-secondary mr-4 mt-1 text-xl flex-shrink-0">★</div>
+                            <span className="text-foreground leading-relaxed font-medium">{achievement}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {/* Apps & Projects */}
+                {exp.apps && exp.apps.length > 0 && (
+                  <div className="space-y-6">
+                    <h4 className="text-lg font-bold text-foreground flex items-center">
+                      <div className="w-4 h-4 bg-gradient-to-r from-primary to-secondary rounded-full mr-3"></div>
+                      Featured Apps & Projects ({exp.apps.length})
+                    </h4>
+                    <div className={`grid gap-6 ${
+                      index === 0 && exp.apps.length >= 3 
+                        ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' 
+                        : 'grid-cols-1 lg:grid-cols-2'
+                    }`}>
+                      {exp.apps.map((app, appIdx) => (
+                        <div 
+                          key={app.id} 
+                          className="transform transition-all duration-300 hover:scale-105"
+                          style={{ animationDelay: `${(index * 200) + (appIdx * 100)}ms` }}
+                        >
+                          <AppCard
+                            name={app.name}
+                            description={app.description}
+                            image={app.image}
+                            technologies={app.technologies}
+                            playStoreLink={app.playStoreLink}
+                            appStoreLink={app.appStoreLink}
+                            demoLink={app.demoLink}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
