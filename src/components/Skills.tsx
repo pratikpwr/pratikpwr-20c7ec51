@@ -86,7 +86,7 @@ const Skills = () => {
                   {category.skills.map((skill) => (
                     <span 
                       key={skill} 
-                      className="px-3 py-1 bg-muted text-muted-foreground text-sm rounded-full"
+                      className="px-3 py-1 bg-primary/10 text-foreground border border-primary/20 text-sm rounded-full"
                     >
                       {skill}
                     </span>
