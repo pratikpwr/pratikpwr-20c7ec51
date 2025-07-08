@@ -80,7 +80,7 @@ const Skills = () => {
               >
                 <div className="flex items-center gap-3 mb-4">
                   {category.icon}
-                  <h4 className="text-lg font-medium text-primary">{category.name}</h4>
+                  <h4 className="text-lg font-medium text-foreground">{category.name}</h4>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill) => (
