@@ -1,32 +1,50 @@
 
 
-## Add Incubyte Experience and Update EatOS Period
+# Reduce Bounce Rate by Highlighting AI-Augmented Development
 
-Two changes to `src/components/Experience.tsx`:
+## Problem
+Your website doesn't mention your AI/agentic development skills anywhere visible. Recruiters and hiring managers searching for developers who use Cursor, Copilot, AI agents, etc. land on the site and don't immediately see what they're looking for -- so they leave.
 
-### 1. Add new Incubyte entry at position 0 in the `experiences` array
+## Strategy
+Surface your AI-augmented development experience prominently across the site so visitors immediately see you're an "AI-native" developer. This involves changes to 4 key areas:
 
-- **id**: `"incubyte"`
-- **company**: `"Incubyte"`
-- **role**: `"Software Crafter II"`
-- **period**: `"Aug 2025 – Present"`
-- **location**: `"India (Remote)"`
-- **link**: `"https://www.incubyte.co/"` (assuming standard company URL)
-- **description** (3 items):
-  - Effectively managed technical requirements, translating complex needs into actionable tickets and providing clear client communication.
-  - Proactively identified and mitigated potential risks by raising technical and project concerns during client communication.
-  - Led and facilitated Scrum ceremonies, including retrospectives, to drive continuous team improvement and project efficiency.
-- **achievements** (3 items):
-  - Significantly improved the development workflow by creating a custom GraphQL Network DevTools Extension and publishing it to Pub.dev, enabling easier debugging of GraphQL requests for the Flutter team.
-  - Accelerated code quality and review cycles by implementing an AI agent to analyze previous Pull Request comments, sharing the learnings and best practices within the mobile guild.
-  - Enhanced application quality by maintaining high test coverage and implementing Test-Driven Development (TDD) practices, leveraging AI tools.
-- **apps**: none
+---
 
-### 2. Update EatOS period
+### 1. Hero Section -- Add AI-Native Badge
+- Add a second badge or update the subtitle to mention AI-augmented development
+- Change subtitle from "Crafting exceptional mobile experiences with Flutter" to something like "Crafting exceptional mobile experiences with Flutter | AI-Augmented Developer"
+- This is the first thing visitors see -- it needs to signal your AI skills immediately
 
-Change `"July 2023 – Present"` to `"July 2023 – June 2025"` on the existing Eigital entry.
+### 2. About Section -- Add AI Development Philosophy
+- Add a new "AI-Augmented Development" highlight block describing your approach
+- Mention tools like Cursor, GitHub Copilot, AI agents for code review, and AI-assisted TDD
+- This gives visitors who scroll past the hero a reason to stay and read more
 
-### Technical Details
+### 3. Experience Section -- Make AI Achievements More Prominent
+- Your Incubyte achievements already mention AI (AI agent for PR analysis, AI-assisted TDD) but they're buried in bullet points
+- Add an "AI Tools" tag/badge to relevant experience entries so it's visually scannable
+- Consider adding tool names (Cursor, Copilot, etc.) to the technologies list for Incubyte
 
-Both changes are in the `experiences` array in `src/components/Experience.tsx`. The new Incubyte entry will be inserted before the existing Eigital entry. Since the first card (`index === 0`) gets `lg:col-span-2`, Incubyte will now be the full-width featured card.
+### 4. Skills Section -- Add "AI-Augmented Development" Category
+- Add a new skills category with items like: Cursor, GitHub Copilot, AI-Assisted TDD, AI Code Review, Prompt Engineering, Lovable/Bolt
+- This ensures the keywords are present for anyone scanning the skills grid
+
+---
+
+### 5. SEO Keywords Update
+- Update the meta keywords in `index.html` to include: "AI developer", "Cursor developer", "AI-augmented development", "agentic developer"
+- Update the JSON-LD structured data `knowsAbout` array to include AI tools
+
+---
+
+## Technical Details
+
+**Files to modify:**
+- `src/components/Hero.tsx` -- Update subtitle and add AI badge
+- `src/components/About.tsx` -- Add AI development philosophy section
+- `src/components/Experience.tsx` -- Add AI tool tags to Incubyte entry
+- `src/components/Skills.tsx` -- Add new "AI-Augmented Development" skill category
+- `index.html` -- Update meta keywords and JSON-LD structured data
+
+All changes are content/copy updates and minor UI additions using existing component patterns. No new dependencies needed.
 
