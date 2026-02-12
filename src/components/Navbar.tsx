@@ -12,9 +12,8 @@ const Navbar = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
       
-      // Determine which section is currently in view
       const sections = document.querySelectorAll('section[id]');
-      const scrollPosition = window.scrollY + 100; // offset to trigger earlier
+      const scrollPosition = window.scrollY + 100;
 
       sections.forEach((section) => {
         const sectionId = section.getAttribute('id') || '';
@@ -45,32 +44,32 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+    <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
       isScrolled 
-        ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-sm' 
+        ? 'bg-background/80 backdrop-blur-xl border-b border-border/50' 
         : 'bg-transparent'
     }`}>
-      <div className="max-w-7xl mx-auto px-6 sm:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8">
+        <div className="flex items-center justify-between h-14">
           {/* Logo */}
           <a href="#home" className="flex items-center space-x-2">
             <img 
               src="/lovable-uploads/349e46a0-86c6-433a-8b8a-dc4c45468c2d.png" 
               alt="Pratik Pawar Logo" 
-              className="w-6 h-6"
+              className="w-5 h-5"
             />
-            <span className="text-xl font-display font-bold text-primary">Pratik Pawar</span>
+            <span className="text-sm font-display font-semibold tracking-tight">Pratik Pawar</span>
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
+          <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <a 
                 key={link.name} 
                 href={link.href} 
-                className={`nav-link font-medium ${
+                className={`nav-link text-muted-foreground ${
                   activeSection === link.href.substring(1) && link.name !== 'Home'
-                    ? 'text-primary after:w-full'
+                    ? 'text-foreground after:w-full'
                     : ''
                 }`}
               >
@@ -78,34 +77,33 @@ const Navbar = () => {
               </a>
             ))}
             
-            {/* Social links and Theme Toggle */}
-            <div className="flex items-center space-x-4 ml-4">
+            <div className="flex items-center space-x-3 ml-4">
               <a 
                 href="https://github.com/pratikpwr" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="GitHub"
               >
-                <Github size={20} />
+                <Github size={18} />
               </a>
               <a 
                 href="https://www.linkedin.com/in/pratikpwr/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="LinkedIn"
               >
-                <Linkedin size={20} />
+                <Linkedin size={18} />
               </a>
               <a 
                 href="https://drive.google.com/file/d/1leXRA5M61I4nziQzX8AtsRccU00caiI7/view?usp=sharing" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="Resume"
               >
-                <FileText size={20} />
+                <FileText size={18} />
               </a>
               <ThemeToggle />
             </div>
@@ -117,10 +115,10 @@ const Navbar = () => {
               href="https://drive.google.com/file/d/1leXRA5M61I4nziQzX8AtsRccU00caiI7/view?usp=sharing" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="mr-2 text-muted-foreground hover:text-primary transition-colors"
+              className="mr-2 text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Resume"
             >
-              <FileText size={20} />
+              <FileText size={18} />
             </a>
             <ThemeToggle />
             <button 
@@ -128,7 +126,7 @@ const Navbar = () => {
               onClick={toggleMenu}
               aria-label="Toggle menu"
             >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
             </button>
           </div>
         </div>
@@ -136,15 +134,15 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg">
-          <div className="px-6 py-4 space-y-2">
+        <div className="md:hidden bg-background/95 backdrop-blur-xl border-b border-border">
+          <div className="px-6 py-4 space-y-1">
             {navLinks.map((link) => (
               <a 
                 key={link.name} 
                 href={link.href} 
-                className={`block py-2 font-medium hover:text-primary transition-colors ${
+                className={`block py-2 text-sm font-light tracking-wide text-muted-foreground hover:text-foreground transition-colors ${
                   activeSection === link.href.substring(1) && link.name !== 'Home'
-                    ? 'text-primary'
+                    ? 'text-foreground'
                     : ''
                 }`}
                 onClick={closeMenu}
@@ -153,25 +151,24 @@ const Navbar = () => {
               </a>
             ))}
             
-            {/* Social links */}
             <div className="flex items-center space-x-4 py-4">
               <a 
                 href="https://github.com/pratikpwr" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="GitHub"
               >
-                <Github size={20} />
+                <Github size={18} />
               </a>
               <a 
                 href="https://www.linkedin.com/in/pratikpwr/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
+                className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label="LinkedIn"
               >
-                <Linkedin size={20} />
+                <Linkedin size={18} />
               </a>
             </div>
           </div>

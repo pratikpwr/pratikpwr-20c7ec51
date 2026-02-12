@@ -8,82 +8,82 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    --foreground: 240 10% 6%;
 
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 240 10% 6%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
+    --popover-foreground: 240 10% 6%;
 
-    --primary: 239 86% 62%; /* rgb(76, 77, 240) */
+    --primary: 239 86% 62%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 176 86% 42%; /* Teal accent */
+    --secondary: 176 86% 42%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 240 4.8% 95.9%;
-    --muted-foreground: 240 3.8% 46.1%;
+    --muted: 240 5% 96%;
+    --muted-foreground: 240 4% 46%;
 
-    --accent: 240 4.8% 95.9%;
-    --accent-foreground: 240 5.9% 10%;
+    --accent: 240 5% 96%;
+    --accent-foreground: 240 6% 10%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 5.9% 90%;
-    --input: 240 5.9% 90%;
-    --ring: 142 71% 45%;
+    --border: 240 6% 90%;
+    --input: 240 6% 90%;
+    --ring: 239 86% 62%;
 
     --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-foreground: 240 5% 26%;
+    --sidebar-primary: 240 6% 10%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-accent: 240 5% 96%;
+    --sidebar-accent-foreground: 240 6% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 217 91% 60%;
   }
 
   .dark {
-    --background: 240 10% 3.9%;
+    --background: 0 0% 4%;
     --foreground: 0 0% 98%;
 
-    --card: 240 10% 3.9%;
+    --card: 0 0% 6%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 240 10% 3.9%;
+    --popover: 0 0% 6%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 239 86% 62%; /* Keep the same primary color */
+    --primary: 239 86% 62%;
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 176 86% 42%; /* Keep the same secondary color */
+    --secondary: 176 86% 42%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
+    --muted: 240 4% 14%;
+    --muted-foreground: 240 5% 65%;
 
-    --accent: 240 3.7% 15.9%;
+    --accent: 240 4% 14%;
     --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 63% 31%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    --border: 240 4% 16%;
+    --input: 240 4% 16%;
+    --ring: 240 5% 84%;
 
-    --sidebar-background: 240 10% 3.9%;
+    --sidebar-background: 0 0% 4%;
     --sidebar-foreground: 0 0% 98%;
     --sidebar-primary: 0 0% 98%;
-    --sidebar-primary-foreground: 240 5.9% 10%;
-    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-primary-foreground: 240 6% 10%;
+    --sidebar-accent: 240 4% 14%;
     --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 240 4.9% 83.9%;
+    --sidebar-border: 240 4% 14%;
+    --sidebar-ring: 240 5% 84%;
   }
 }
 
@@ -93,7 +93,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground font-sans antialiased;
     scroll-behavior: smooth;
   }
 
@@ -105,12 +105,12 @@
 @layer components {
   /* Navigation */
   .nav-link {
-    @apply relative px-2 py-1 transition-colors duration-300 hover:text-primary;
+    @apply relative px-1 py-1 text-sm font-light tracking-wide transition-colors duration-300 hover:text-foreground;
   }
   
   .nav-link::after {
     content: '';
-    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+    @apply absolute bottom-0 left-0 w-0 h-px bg-foreground transition-all duration-300;
   }
   
   .nav-link:hover::after {
@@ -119,86 +119,42 @@
 
   /* Sections */
   .section-container {
-    @apply max-w-7xl mx-auto px-6 sm:px-8 py-16 md:py-24;
+    @apply max-w-6xl mx-auto px-6 sm:px-8 py-24 md:py-32;
   }
   
   .section-title {
-    @apply text-3xl md:text-4xl font-display font-bold mb-6 text-center;
+    @apply text-4xl md:text-5xl font-display font-bold mb-4 tracking-tight;
   }
   
   .section-subtitle {
-    @apply text-lg md:text-xl font-medium text-muted-foreground mb-12 text-center max-w-2xl mx-auto;
+    @apply text-lg md:text-xl font-light text-muted-foreground mb-16 max-w-2xl;
   }
 
-  /* Cards */
-  .glass-card {
-    @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-white/20 dark:border-gray-700/30 shadow-lg rounded-2xl;
+  /* Section divider */
+  .section-divider {
+    @apply w-full h-px bg-border;
+  }
+
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  }
+
+  /* Cards - clean flat style */
+  .clean-card {
+    @apply bg-card border border-border rounded-2xl transition-all duration-300;
   }
   
-  .hover-card {
-    @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+  .clean-card:hover {
+    @apply shadow-lg;
   }
 
   /* Animations */
-  .reveal-delay-1 {
-    animation-delay: 0.1s;
-    opacity: 0;
-  }
-  .reveal-delay-2 {
-    animation-delay: 0.2s;
-    opacity: 0;
-  }
-  .reveal-delay-3 {
-    animation-delay: 0.3s;
-    opacity: 0;
-  }
-  .reveal-delay-4 {
-    animation-delay: 0.4s;
-    opacity: 0;
-  }
-  .reveal-delay-5 {
-    animation-delay: 0.5s;
-    opacity: 0;
-  }
-  
-  /* Gradient background for home section in light mode and all sections in dark mode */
-  .gradient-bg {
-    position: relative;
-    z-index: 1;
-  }
-  
-  .gradient-bg::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(120deg, rgba(76, 77, 240, 0.08), rgba(66, 186, 150, 0.08), rgba(76, 77, 240, 0.08));
-    background-size: 300% 300%;
-    animation: gradientMove 15s ease infinite;
-    z-index: -1;
-  }
-  
-  /* Only apply gradient background to non-home sections in dark mode */
-  :not(#home).gradient-bg::before {
-    @apply hidden dark:block;
-  }
-  
-  @keyframes gradientMove {
-    0% {
-      background-position: 0% 50%;
-      background-size: 100% 100%;
-    }
-    50% {
-      background-position: 100% 50%;
-      background-size: 150% 150%;
-    }
-    100% {
-      background-position: 0% 50%;
-      background-size: 100% 100%;
-    }
-  }
+  .reveal-delay-1 { animation-delay: 0.1s; opacity: 0; }
+  .reveal-delay-2 { animation-delay: 0.2s; opacity: 0; }
+  .reveal-delay-3 { animation-delay: 0.3s; opacity: 0; }
+  .reveal-delay-4 { animation-delay: 0.4s; opacity: 0; }
+  .reveal-delay-5 { animation-delay: 0.5s; opacity: 0; }
   
   /* Responsive profile picture */
   @media (min-aspect-ratio: 16/9) {
@@ -208,7 +164,7 @@
     }
   }
 
-  /* Orbiting icons - moon-like orbit */
+  /* Orbiting icons */
   .orbit-container {
     position: absolute;
     inset: -70px;
@@ -217,32 +173,29 @@
 
   .orbit-icon {
     position: absolute;
-    width: 56px;
-    height: 56px;
+    width: 48px;
+    height: 48px;
     left: 50%;
     top: 50%;
-    margin-left: -28px;
-    margin-top: -28px;
-    filter: drop-shadow(0 0 8px rgba(255,255,255,0.15));
+    margin-left: -24px;
+    margin-top: -24px;
+    filter: drop-shadow(0 0 6px rgba(255,255,255,0.1));
   }
 
-  /* Position each icon evenly around the circle */
-  .orbit-icon:nth-child(1) { animation: orbit-item-1 25s linear infinite; }
-  .orbit-icon:nth-child(2) { animation: orbit-item-2 25s linear infinite; }
-  .orbit-icon:nth-child(3) { animation: orbit-item-3 25s linear infinite; }
-  .orbit-icon:nth-child(4) { animation: orbit-item-4 25s linear infinite; }
-  .orbit-icon:nth-child(5) { animation: orbit-item-5 25s linear infinite; }
-  .orbit-icon:nth-child(6) { animation: orbit-item-6 25s linear infinite; }
+  .orbit-icon:nth-child(1) { animation: orbit-item-1 30s linear infinite; }
+  .orbit-icon:nth-child(2) { animation: orbit-item-2 30s linear infinite; }
+  .orbit-icon:nth-child(3) { animation: orbit-item-3 30s linear infinite; }
+  .orbit-icon:nth-child(4) { animation: orbit-item-4 30s linear infinite; }
+  .orbit-icon:nth-child(5) { animation: orbit-item-5 30s linear infinite; }
+  .orbit-icon:nth-child(6) { animation: orbit-item-6 30s linear infinite; }
 
   @media (min-width: 768px) {
-    .orbit-container {
-      inset: -90px;
-    }
+    .orbit-container { inset: -90px; }
     .orbit-icon {
-      width: 64px;
-      height: 64px;
-      margin-left: -32px;
-      margin-top: -32px;
+      width: 56px;
+      height: 56px;
+      margin-left: -28px;
+      margin-top: -28px;
     }
     .orbit-icon:nth-child(1) { animation-name: orbit-item-1-md; }
     .orbit-icon:nth-child(2) { animation-name: orbit-item-2-md; }
