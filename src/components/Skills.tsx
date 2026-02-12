@@ -7,6 +7,11 @@ import {
 
 const skillsCategories = [
   {
+    name: "AI-Augmented Development",
+    skills: ["Cursor", "GitHub Copilot", "AI-Assisted TDD", "AI Code Review Agents", "Prompt Engineering", "Lovable"],
+    icon: <Fingerprint className="w-6 h-6 text-primary" />
+  },
+  {
     name: "Mobile Development",
     skills: ["Flutter", "Dart", "Android", "iOS"],
     icon: <Smartphone className="w-6 h-6 text-primary" />

@@ -52,6 +52,22 @@ const About = () => {
                 <p>• Host of Tech Meetups: Organized and facilitated multiple tech meetups, fostering a collaborative local tech community and promoting knowledge sharing.</p>
               </div>
             </div>
+
+            <div>
+              <h3 className="text-2xl font-bold mb-4 font-display text-center md:text-left flex items-center justify-center md:justify-start gap-2">
+                <span>⚡</span> AI-Augmented Development
+              </h3>
+              <div className="space-y-2 text-muted-foreground">
+                <p>I integrate AI tools deeply into my development workflow — not as a novelty, but as a force multiplier for quality and speed.</p>
+                <div className="flex flex-wrap gap-2 mt-3">
+                  {["Cursor", "GitHub Copilot", "AI-Assisted TDD", "AI Code Review Agents", "Prompt Engineering"].map((tool) => (
+                    <span key={tool} className="px-3 py-1 bg-primary/10 text-primary border border-primary/20 text-sm rounded-full font-medium">
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
