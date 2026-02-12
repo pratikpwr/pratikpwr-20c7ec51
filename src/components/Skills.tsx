@@ -2,8 +2,9 @@
 import { 
   Code2, GitBranch, Database, Server, 
   LayoutPanelTop, Globe, Smartphone, Fingerprint,
-  RotateCw // Added rotation icon for state management
+  RotateCw
 } from 'lucide-react';
+import ScrollReveal from './ScrollReveal';
 
 const skillsCategories = [
   {
@@ -29,7 +30,7 @@ const skillsCategories = [
   {
     name: "State Management",
     skills: ["Bloc", "Provider", "Riverpod"],
-    icon: <RotateCw className="w-6 h-6 text-primary" /> // Changed to RotateCw icon
+    icon: <RotateCw className="w-6 h-6 text-primary" />
   },
   {
     name: "Programming Languages",
@@ -64,54 +65,59 @@ const Skills = () => {
   return (
     <section id="skills" className="py-20 gradient-bg">
       <div className="section-container">
-        <h2 className="section-title">Skills & Competencies</h2>
-        <p className="section-subtitle">My technical expertise and core competencies</p>
+        <ScrollReveal>
+          <h2 className="section-title">Skills & Competencies</h2>
+          <p className="section-subtitle">My technical expertise and core competencies</p>
+        </ScrollReveal>
         
         {/* Technical Skills */}
         <div className="mt-10">
-          <h3 className="text-2xl font-bold font-display text-center mb-6">Technical Skills</h3>
+          <ScrollReveal delay={0.1}>
+            <h3 className="text-2xl font-bold font-display text-center mb-6">Technical Skills</h3>
+          </ScrollReveal>
           
           <div className="grid gap-4 sm:grid-cols-2 mt-6">
             {skillsCategories.map((category, index) => (
-              <div 
-                key={category.name}
-                className="glass-card p-6 hover-card"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  {category.icon}
-                  <h4 className="text-lg font-medium text-foreground">{category.name}</h4>
+              <ScrollReveal key={category.name} delay={index * 0.08} direction="up">
+                <div 
+                  className="glass-card p-6 hover-card h-full"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    {category.icon}
+                    <h4 className="text-lg font-medium text-foreground">{category.name}</h4>
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map((skill) => (
+                      <span 
+                        key={skill} 
+                        className="px-3 py-1 bg-primary/10 text-foreground border border-primary/20 text-sm rounded-full"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill) => (
-                    <span 
-                      key={skill} 
-                      className="px-3 py-1 bg-primary/10 text-foreground border border-primary/20 text-sm rounded-full"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
         
-        {/* Core Competencies - Updated background color for dark mode */}
+        {/* Core Competencies */}
         <div className="mt-16">
-          <h3 className="text-2xl font-bold font-display text-center mb-6">Core Competencies</h3>
+          <ScrollReveal>
+            <h3 className="text-2xl font-bold font-display text-center mb-6">Core Competencies</h3>
+          </ScrollReveal>
           
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 mt-6">
             {coreCompetencies.map((competency, index) => (
-              <div 
-                key={index}
-                className="relative group"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary/30 rounded-xl blur-sm opacity-60 group-hover:opacity-100 transition-opacity"></div>
-                <div className="relative flex items-center p-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-white/20 rounded-xl shadow-sm h-full group-hover:transform group-hover:-translate-y-1 transition-transform">
-                  <p className="font-medium">{competency}</p>
+              <ScrollReveal key={index} delay={index * 0.06} direction="up">
+                <div className="relative group h-full">
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-secondary/30 rounded-xl blur-sm opacity-60 group-hover:opacity-100 transition-opacity"></div>
+                  <div className="relative flex items-center p-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-white/20 rounded-xl shadow-sm h-full group-hover:transform group-hover:-translate-y-1 transition-transform">
+                    <p className="font-medium">{competency}</p>
+                  </div>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
