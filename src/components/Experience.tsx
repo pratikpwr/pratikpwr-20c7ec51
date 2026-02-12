@@ -160,13 +160,11 @@ const Experience = () => {
         <p className="section-subtitle">My professional journey in mobile application development</p>
         
         {/* Experience Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-16">
+        <div className="flex flex-col gap-8 mt-16">
           {experiences.map((exp, index) => (
             <div
               key={exp.id}
-              className={`glass-card hover-card transition-all duration-500 ${
-                index === 0 ? 'lg:col-span-2' : ''
-              }`}
+              className="glass-card hover-card transition-all duration-500"
               style={{ animationDelay: `${index * 200}ms` }}
             >
               {/* Company Header */}
