@@ -208,40 +208,41 @@
     }
   }
 
-  /* Orbiting icons */
+  /* Orbiting icons - moon-like orbit */
   .orbit-container {
     position: absolute;
-    inset: -40px;
+    inset: -70px;
     z-index: 10;
   }
 
   .orbit-icon {
     position: absolute;
-    width: 48px;
-    height: 48px;
+    width: 56px;
+    height: 56px;
     left: 50%;
     top: 50%;
-    margin-left: -24px;
-    margin-top: -24px;
+    margin-left: -28px;
+    margin-top: -28px;
+    filter: drop-shadow(0 0 8px rgba(255,255,255,0.15));
   }
 
   /* Position each icon evenly around the circle */
-  .orbit-icon:nth-child(1) { animation: orbit-item-1 20s linear infinite; }
-  .orbit-icon:nth-child(2) { animation: orbit-item-2 20s linear infinite; }
-  .orbit-icon:nth-child(3) { animation: orbit-item-3 20s linear infinite; }
-  .orbit-icon:nth-child(4) { animation: orbit-item-4 20s linear infinite; }
-  .orbit-icon:nth-child(5) { animation: orbit-item-5 20s linear infinite; }
-  .orbit-icon:nth-child(6) { animation: orbit-item-6 20s linear infinite; }
+  .orbit-icon:nth-child(1) { animation: orbit-item-1 25s linear infinite; }
+  .orbit-icon:nth-child(2) { animation: orbit-item-2 25s linear infinite; }
+  .orbit-icon:nth-child(3) { animation: orbit-item-3 25s linear infinite; }
+  .orbit-icon:nth-child(4) { animation: orbit-item-4 25s linear infinite; }
+  .orbit-icon:nth-child(5) { animation: orbit-item-5 25s linear infinite; }
+  .orbit-icon:nth-child(6) { animation: orbit-item-6 25s linear infinite; }
 
   @media (min-width: 768px) {
     .orbit-container {
-      inset: -50px;
+      inset: -90px;
     }
     .orbit-icon {
-      width: 52px;
-      height: 52px;
-      margin-left: -26px;
-      margin-top: -26px;
+      width: 64px;
+      height: 64px;
+      margin-left: -32px;
+      margin-top: -32px;
     }
     .orbit-icon:nth-child(1) { animation-name: orbit-item-1-md; }
     .orbit-icon:nth-child(2) { animation-name: orbit-item-2-md; }
@@ -256,19 +257,19 @@
     background: transparent;
   }
 
-  /* Generate keyframes for each icon - mobile (155px radius) */
-  @keyframes orbit-item-1 { from { transform: rotate(0deg) translateX(155px) rotate(0deg); } to { transform: rotate(360deg) translateX(155px) rotate(-360deg); } }
-  @keyframes orbit-item-2 { from { transform: rotate(60deg) translateX(155px) rotate(-60deg); } to { transform: rotate(420deg) translateX(155px) rotate(-420deg); } }
-  @keyframes orbit-item-3 { from { transform: rotate(120deg) translateX(155px) rotate(-120deg); } to { transform: rotate(480deg) translateX(155px) rotate(-480deg); } }
-  @keyframes orbit-item-4 { from { transform: rotate(180deg) translateX(155px) rotate(-180deg); } to { transform: rotate(540deg) translateX(155px) rotate(-540deg); } }
-  @keyframes orbit-item-5 { from { transform: rotate(240deg) translateX(155px) rotate(-240deg); } to { transform: rotate(600deg) translateX(155px) rotate(-600deg); } }
-  @keyframes orbit-item-6 { from { transform: rotate(300deg) translateX(155px) rotate(-300deg); } to { transform: rotate(660deg) translateX(155px) rotate(-660deg); } }
+  /* Mobile orbit (185px radius) */
+  @keyframes orbit-item-1 { from { transform: rotate(0deg) translateX(185px) rotate(0deg); } to { transform: rotate(360deg) translateX(185px) rotate(-360deg); } }
+  @keyframes orbit-item-2 { from { transform: rotate(60deg) translateX(185px) rotate(-60deg); } to { transform: rotate(420deg) translateX(185px) rotate(-420deg); } }
+  @keyframes orbit-item-3 { from { transform: rotate(120deg) translateX(185px) rotate(-120deg); } to { transform: rotate(480deg) translateX(185px) rotate(-480deg); } }
+  @keyframes orbit-item-4 { from { transform: rotate(180deg) translateX(185px) rotate(-180deg); } to { transform: rotate(540deg) translateX(185px) rotate(-540deg); } }
+  @keyframes orbit-item-5 { from { transform: rotate(240deg) translateX(185px) rotate(-240deg); } to { transform: rotate(600deg) translateX(185px) rotate(-600deg); } }
+  @keyframes orbit-item-6 { from { transform: rotate(300deg) translateX(185px) rotate(-300deg); } to { transform: rotate(660deg) translateX(185px) rotate(-660deg); } }
 
-  /* Generate keyframes for each icon - desktop (195px radius) */
-  @keyframes orbit-item-1-md { from { transform: rotate(0deg) translateX(195px) rotate(0deg); } to { transform: rotate(360deg) translateX(195px) rotate(-360deg); } }
-  @keyframes orbit-item-2-md { from { transform: rotate(60deg) translateX(195px) rotate(-60deg); } to { transform: rotate(420deg) translateX(195px) rotate(-420deg); } }
-  @keyframes orbit-item-3-md { from { transform: rotate(120deg) translateX(195px) rotate(-120deg); } to { transform: rotate(480deg) translateX(195px) rotate(-480deg); } }
-  @keyframes orbit-item-4-md { from { transform: rotate(180deg) translateX(195px) rotate(-180deg); } to { transform: rotate(540deg) translateX(195px) rotate(-540deg); } }
-  @keyframes orbit-item-5-md { from { transform: rotate(240deg) translateX(195px) rotate(-240deg); } to { transform: rotate(600deg) translateX(195px) rotate(-600deg); } }
-  @keyframes orbit-item-6-md { from { transform: rotate(300deg) translateX(195px) rotate(-300deg); } to { transform: rotate(660deg) translateX(195px) rotate(-660deg); } }
+  /* Desktop orbit (240px radius) */
+  @keyframes orbit-item-1-md { from { transform: rotate(0deg) translateX(240px) rotate(0deg); } to { transform: rotate(360deg) translateX(240px) rotate(-360deg); } }
+  @keyframes orbit-item-2-md { from { transform: rotate(60deg) translateX(240px) rotate(-60deg); } to { transform: rotate(420deg) translateX(240px) rotate(-420deg); } }
+  @keyframes orbit-item-3-md { from { transform: rotate(120deg) translateX(240px) rotate(-120deg); } to { transform: rotate(480deg) translateX(240px) rotate(-480deg); } }
+  @keyframes orbit-item-4-md { from { transform: rotate(180deg) translateX(240px) rotate(-180deg); } to { transform: rotate(540deg) translateX(240px) rotate(-540deg); } }
+  @keyframes orbit-item-5-md { from { transform: rotate(240deg) translateX(240px) rotate(-240deg); } to { transform: rotate(600deg) translateX(240px) rotate(-600deg); } }
+  @keyframes orbit-item-6-md { from { transform: rotate(300deg) translateX(240px) rotate(-300deg); } to { transform: rotate(660deg) translateX(240px) rotate(-660deg); } }
 }
