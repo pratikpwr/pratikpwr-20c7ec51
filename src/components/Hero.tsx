@@ -1,22 +1,27 @@
 
 import { ArrowDownCircle } from 'lucide-react';
+import { useTheme } from '@/components/ThemeProvider';
 import flutterIcon from '@/assets/icons/flutter.svg';
 import dartIcon from '@/assets/icons/dart.svg';
 import androidIcon from '@/assets/icons/android.svg';
 import appleIcon from '@/assets/icons/apple.svg';
-import cursorIcon from '@/assets/icons/cursor.svg';
+import cursorLightIcon from '@/assets/icons/cursor-light.svg';
+import cursorDarkIcon from '@/assets/icons/cursor-dark.svg';
 import claudeIcon from '@/assets/icons/claude.svg';
 
-const orbitingTools = [
+const getOrbitingTools = (isDark: boolean) => [
   { name: 'Flutter', icon: flutterIcon },
   { name: 'Dart', icon: dartIcon },
   { name: 'Android', icon: androidIcon },
   { name: 'iOS', icon: appleIcon },
-  { name: 'Cursor', icon: cursorIcon },
+  { name: 'Cursor', icon: isDark ? cursorDarkIcon : cursorLightIcon },
   { name: 'Claude', icon: claudeIcon },
 ];
 
 const Hero = () => {
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
+  const orbitingTools = getOrbitingTools(isDark);
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-16 pb-20 overflow-hidden gradient-bg">
       {/* Background elements */}
