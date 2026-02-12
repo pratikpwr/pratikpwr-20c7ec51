@@ -1,6 +1,5 @@
 
-import { useState } from 'react';
-import { Github, ExternalLink } from 'lucide-react';
+import { Github } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
 interface Project {
@@ -41,12 +40,10 @@ const projects: Project[] = [
 ];
 
 const Projects = () => {
-  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
-  
   return (
-    <section id="projects" className="py-20 bg-muted/30 gradient-bg">
+    <section id="projects" className="border-t border-border">
       <div className="section-container">
-        <ScrollReveal>
+        <ScrollReveal direction="blur">
           <h2 className="section-title">Personal Projects</h2>
           <p className="section-subtitle">A selection of my personal Flutter applications</p>
         </ScrollReveal>
@@ -54,30 +51,24 @@ const Projects = () => {
         <div className="grid md:grid-cols-2 gap-8 mt-10">
           {projects.map((project, index) => (
             <ScrollReveal key={project.id} delay={index * 0.15} direction="up">
-              <div 
-                className="glass-card overflow-hidden hover-card h-full"
-                onMouseEnter={() => setHoveredProject(project.id)}
-                onMouseLeave={() => setHoveredProject(null)}
-              >
+              <div className="group clean-card overflow-hidden h-full">
                 <div className="aspect-video w-full overflow-hidden">
                   <img 
                     src={project.image} 
                     alt={project.title} 
-                    className={`w-full h-full object-cover transition-transform duration-700 ${
-                      hoveredProject === project.id ? 'scale-110' : 'scale-100'
-                    }`}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 </div>
                 
                 <div className="p-6 space-y-4">
-                  <h3 className="text-2xl font-bold font-display">{project.title}</h3>
-                  <p className="text-muted-foreground">{project.description}</p>
+                  <h3 className="text-xl font-bold font-display tracking-tight">{project.title}</h3>
+                  <p className="text-muted-foreground font-light leading-relaxed text-sm">{project.description}</p>
                   
                   <div className="flex flex-wrap gap-2 pt-2">
                     {project.technologies.map((tech) => (
                       <span 
                         key={tech} 
-                        className="px-3 py-1 bg-primary/10 text-primary text-sm font-medium rounded-full"
+                        className="px-3 py-1 bg-muted text-muted-foreground text-xs rounded-full"
                       >
                         {tech}
                       </span>
@@ -90,9 +81,9 @@ const Projects = () => {
                         href={project.github} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="flex items-center gap-1.5 text-muted-foreground hover:text-primary transition-colors"
+                        className="flex items-center gap-1.5 text-muted-foreground hover:text-foreground transition-colors text-sm"
                       >
-                        <Github size={18} />
+                        <Github size={16} />
                         <span>Code</span>
                       </a>
                     )}
