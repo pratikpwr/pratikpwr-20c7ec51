@@ -48,7 +48,7 @@ const Hero = () => {
                         <img
                           src={tool.icon}
                           alt={tool.name}
-                          className="w-9 h-9 md:w-10 md:h-10"
+                          className="w-10 h-10 md:w-12 md:h-12"
                           title={tool.name}
                         />
                       </div>
