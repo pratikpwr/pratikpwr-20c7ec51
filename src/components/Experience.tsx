@@ -27,10 +27,28 @@ interface ExperienceItem {
 
 const experiences: ExperienceItem[] = [
   {
+    id: "incubyte",
+    company: "Incubyte",
+    role: "Software Crafter II",
+    period: "Aug 2025 – Present",
+    location: "India (Remote)",
+    link: "https://www.incubyte.co/",
+    description: [
+      "Effectively managed technical requirements, translating complex needs into actionable tickets and providing clear client communication.",
+      "Proactively identified and mitigated potential risks by raising technical and project concerns during client communication.",
+      "Led and facilitated Scrum ceremonies, including retrospectives, to drive continuous team improvement and project efficiency."
+    ],
+    achievements: [
+      "Significantly improved the development workflow by creating a custom GraphQL Network DevTools Extension and publishing it to Pub.dev, enabling easier debugging of GraphQL requests for the Flutter team.",
+      "Accelerated code quality and review cycles by implementing an AI agent to analyze previous Pull Request comments, sharing the learnings and best practices within the mobile guild.",
+      "Enhanced application quality by maintaining high test coverage and implementing Test-Driven Development (TDD) practices, leveraging AI tools."
+    ]
+  },
+  {
     id: "eigital",
     company: "Eigital (EatOS)",
     role: "Senior Flutter Developer",
-    period: "July 2023 – Present",
+    period: "July 2023 – June 2025",
     location: "USA (Remote)",
     link: "https://www.eatos.com/",
     description: [
