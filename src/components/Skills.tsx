@@ -23,7 +23,7 @@ const skillsCategories = [
   },
   {
     name: "Tools & Platforms",
-    skills: ["Firebase", "CI/CD", "Git/Version Control", "FlutterFlow", "Jira"],
+    skills: ["Firebase", "CI/CD", "Git/Version Control", "FlutterFlow", "Jira", "Cursor", "Claude Code"],
     icon: <GitBranch className="w-6 h-6 text-primary" />
   },
   {
@@ -53,7 +53,7 @@ const coreCompetencies = [
   "Payment Integration Systems",
   "UI/UX Design",
   "App Performance Optimization",
-  "Bug Fixing and App Stability",
+  "Agentic Development",
   "Project Setup & Architecture Planning",
   "Software Development Life Cycle",
   "Unit & Integration Testing",
