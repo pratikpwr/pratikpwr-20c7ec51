@@ -1,5 +1,20 @@
 
 import { ArrowDownCircle } from 'lucide-react';
+import flutterIcon from '@/assets/icons/flutter.svg';
+import dartIcon from '@/assets/icons/dart.svg';
+import androidIcon from '@/assets/icons/android.svg';
+import appleIcon from '@/assets/icons/apple.svg';
+import cursorIcon from '@/assets/icons/cursor.svg';
+import claudeIcon from '@/assets/icons/claude.svg';
+
+const orbitingTools = [
+  { name: 'Flutter', icon: flutterIcon },
+  { name: 'Dart', icon: dartIcon },
+  { name: 'Android', icon: androidIcon },
+  { name: 'iOS', icon: appleIcon },
+  { name: 'Cursor', icon: cursorIcon },
+  { name: 'Claude', icon: claudeIcon },
+];
 
 const Hero = () => {
   return (
@@ -13,10 +28,34 @@ const Hero = () => {
       <div className="section-container relative w-full">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Profile Image - Changed order to be first in mobile view */}
+            {/* Profile Image with Orbiting Icons */}
             <div className="flex justify-center md:justify-start animate-fade-in reveal-delay-1 order-1 md:order-1">
               <div className="relative">
                 <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-primary/30 to-secondary/20 blur-lg"></div>
+                
+                {/* Orbit ring */}
+                <div className="orbit-container">
+                  {orbitingTools.map((tool, index) => (
+                    <div
+                      key={tool.name}
+                      className="orbit-icon"
+                      style={{
+                        '--orbit-delay': `${-(index * (20 / orbitingTools.length))}s`,
+                        '--orbit-index': index,
+                      } as React.CSSProperties}
+                    >
+                      <div className="orbit-icon-inner">
+                        <img
+                          src={tool.icon}
+                          alt={tool.name}
+                          className="w-7 h-7 md:w-8 md:h-8 dark:invert-[0.15]"
+                          title={tool.name}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
                 <div className="relative h-64 w-64 md:h-80 md:w-80 profile-img rounded-full overflow-hidden border-4 border-white shadow-xl">
                   <img 
                     src="/lovable-uploads/400afafe-afd6-48ef-b1ae-4454b493c39a.png" 
@@ -69,7 +108,7 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Scroll indicator - moved to absolute bottom of the section */}
+      {/* Scroll indicator */}
       <div className="hidden md:block absolute bottom-5 left-0 right-0 mx-auto w-fit animate-fade-in reveal-delay-5">
         <a href="#about" className="flex flex-col items-center text-muted-foreground hover:text-primary transition-colors">
           <span className="text-sm font-medium mb-2">Scroll down</span>
