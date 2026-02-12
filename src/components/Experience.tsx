@@ -22,7 +22,6 @@ interface ExperienceItem {
   link?: string;
   description: string[];
   achievements?: string[];
-  aiTools?: string[];
   apps?: AppItem[];
 }
 
@@ -34,7 +33,6 @@ const experiences: ExperienceItem[] = [
     period: "Aug 2025 – Present",
     location: "India (Remote)",
     link: "https://www.incubyte.co/",
-    aiTools: ["Cursor", "GitHub Copilot", "AI Agents"],
     description: [
       "Effectively managed technical requirements, translating complex needs into actionable tickets and providing clear client communication.",
       "Proactively identified and mitigated potential risks by raising technical and project concerns during client communication.",
@@ -180,13 +178,8 @@ const Experience = () => {
                       <h3 className="text-2xl font-bold font-display text-primary mb-2">
                         {exp.company}
                       </h3>
-                      <div className="flex items-center flex-wrap gap-2 mb-3">
+                      <div className="flex items-center gap-2 mb-3">
                         <span className="text-lg font-semibold text-foreground">{exp.role}</span>
-                        {exp.aiTools && exp.aiTools.map((tool) => (
-                          <span key={tool} className="px-2 py-0.5 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/20">
-                            ⚡ {tool}
-                          </span>
-                        ))}
                         {exp.link && (
                           <a
                             href={exp.link}

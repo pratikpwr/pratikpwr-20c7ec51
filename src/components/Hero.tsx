@@ -30,12 +30,9 @@ const Hero = () => {
             {/* Text Content */}
             <div className="space-y-6 text-center md:text-left order-2 md:order-2">
               {/* Badge */}
-              <div className="flex flex-wrap justify-center md:justify-start gap-2 animate-fade-in reveal-delay-1">
+              <div className="inline-block animate-fade-in reveal-delay-1">
                 <div className="px-4 py-1.5 rounded-full border border-border bg-muted/80 backdrop-blur-sm text-sm font-medium">
                   Sr. Flutter Developer
-                </div>
-                <div className="px-4 py-1.5 rounded-full border border-primary/30 bg-primary/10 backdrop-blur-sm text-sm font-medium text-primary">
-                  ⚡ AI-Augmented Developer
                 </div>
               </div>
               
@@ -48,7 +45,7 @@ const Hero = () => {
               
               <div className="overflow-hidden">
                 <p className="text-xl md:text-2xl text-muted-foreground animate-text-reveal reveal-delay-3">
-                  Crafting exceptional mobile experiences with Flutter & AI-powered development
+                  Crafting exceptional mobile experiences with Flutter
                 </p>
               </div>
               
