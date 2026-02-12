@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pratikpwr.lovable.app/sitemap.xml
+Sitemap: https://pratikpwr.me/sitemap.xml
