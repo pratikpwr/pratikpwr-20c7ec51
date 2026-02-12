@@ -4,7 +4,7 @@ const About = () => {
     <section id="about" className="py-20 bg-muted/30 gradient-bg">
       <div className="section-container">
         <h2 className="section-title">About Me</h2>
-        <p className="section-subtitle">Technology-driven professional with 3 years of experience in Mobile Application Development</p>
+        <p className="section-subtitle">Technology-driven professional with 5+ years of experience in Mobile Application Development</p>
         
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Image */}
