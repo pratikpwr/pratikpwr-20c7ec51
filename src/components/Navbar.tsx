@@ -38,7 +38,7 @@ const Navbar = () => {
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
     { name: 'Skills', href: '#skills' },
-    { name: 'Experience', href: '#experience' },
+    { name: 'Journey', href: '#experience' },
     { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -46,19 +46,19 @@ const Navbar = () => {
   return (
     <nav className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
       isScrolled 
-        ? 'bg-background/80 backdrop-blur-xl border-b border-border/50' 
+        ? 'bg-background/80 backdrop-blur-xl border-b border-border/50 shadow-sm' 
         : 'bg-transparent'
     }`}>
       <div className="max-w-6xl mx-auto px-6 sm:px-8">
-        <div className="flex items-center justify-between h-14">
+        <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="#home" className="flex items-center space-x-2">
+          <a href="#home" className="flex items-center space-x-2 group">
             <img 
               src="/lovable-uploads/349e46a0-86c6-433a-8b8a-dc4c45468c2d.png" 
               alt="Pratik Pawar Logo" 
-              className="w-5 h-5"
+              className="w-6 h-6 group-hover:scale-110 transition-transform duration-300"
             />
-            <span className="text-sm font-display font-semibold tracking-tight">Pratik Pawar</span>
+            <span className="text-sm font-display font-bold tracking-tight text-gradient">Pratik Pawar</span>
           </a>
 
           {/* Desktop Navigation */}
@@ -69,7 +69,7 @@ const Navbar = () => {
                 href={link.href} 
                 className={`nav-link text-muted-foreground ${
                   activeSection === link.href.substring(1) && link.name !== 'Home'
-                    ? 'text-foreground after:w-full'
+                    ? 'text-primary after:w-full after:bg-primary'
                     : ''
                 }`}
               >
@@ -82,7 +82,7 @@ const Navbar = () => {
                 href="https://github.com/pratikpwr" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="GitHub"
               >
                 <Github size={18} />
@@ -91,7 +91,7 @@ const Navbar = () => {
                 href="https://www.linkedin.com/in/pratikpwr/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={18} />
@@ -100,7 +100,7 @@ const Navbar = () => {
                 href="https://drive.google.com/file/d/1leXRA5M61I4nziQzX8AtsRccU00caiI7/view?usp=sharing" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="Resume"
               >
                 <FileText size={18} />
@@ -115,7 +115,7 @@ const Navbar = () => {
               href="https://drive.google.com/file/d/1leXRA5M61I4nziQzX8AtsRccU00caiI7/view?usp=sharing" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="mr-2 text-muted-foreground hover:text-foreground transition-colors"
+              className="mr-2 text-muted-foreground hover:text-primary transition-colors"
               aria-label="Resume"
             >
               <FileText size={18} />
@@ -140,9 +140,9 @@ const Navbar = () => {
               <a 
                 key={link.name} 
                 href={link.href} 
-                className={`block py-2 text-sm font-light tracking-wide text-muted-foreground hover:text-foreground transition-colors ${
+                className={`block py-2 text-sm font-light tracking-wide text-muted-foreground hover:text-primary transition-colors ${
                   activeSection === link.href.substring(1) && link.name !== 'Home'
-                    ? 'text-foreground'
+                    ? 'text-primary'
                     : ''
                 }`}
                 onClick={closeMenu}
@@ -156,7 +156,7 @@ const Navbar = () => {
                 href="https://github.com/pratikpwr" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="GitHub"
               >
                 <Github size={18} />
@@ -165,7 +165,7 @@ const Navbar = () => {
                 href="https://www.linkedin.com/in/pratikpwr/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
+                className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={18} />
