@@ -1,5 +1,5 @@
 
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Briefcase, Trophy } from 'lucide-react';
 import AppCard from './AppCard';
 import ScrollReveal from './ScrollReveal';
 
@@ -155,108 +155,126 @@ const experiences: ExperienceItem[] = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="border-t border-border">
+    <section id="experience" className="relative overflow-hidden">
+      <div className="gradient-blob w-80 h-80 top-40 -right-40 opacity-10" style={{ animationDelay: '-3s' }} />
       <div className="section-container">
         <ScrollReveal direction="blur">
-          <h2 className="section-title">Work Experience</h2>
-          <p className="section-subtitle">My professional journey in mobile application development</p>
+          <h2 className="section-title">
+            My <span className="text-gradient">Journey</span>
+          </h2>
+          <p className="section-subtitle">Where I've been and what I've built along the way 🗺️</p>
         </ScrollReveal>
         
-        <div className="flex flex-col gap-12 mt-16">
+        {/* Timeline */}
+        <div className="flex flex-col gap-12 mt-16 relative">
+          {/* Vertical timeline line - desktop only */}
+          <div className="hidden md:block absolute left-0 top-6 bottom-6 w-0.5 bg-gradient-to-b from-primary via-secondary to-transparent" />
+          
           {experiences.map((exp, index) => (
             <ScrollReveal key={exp.id} delay={index * 0.1} direction="up">
-              <div className="clean-card overflow-hidden">
-                {/* Company Header */}
-                <div className="p-8 pb-6">
-                  <div className="flex items-start justify-between mb-6">
-                    <div className="flex-1">
-                      <h3 className="text-2xl font-bold font-display tracking-tight mb-2">
-                        {exp.company}
-                      </h3>
-                      <div className="flex items-center gap-2 mb-4">
-                        <span className="text-lg font-light text-muted-foreground">{exp.role}</span>
-                        {exp.link && (
-                          <a
-                            href={exp.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-muted-foreground hover:text-foreground transition-colors p-1"
-                          >
-                            <ExternalLink size={16} />
-                          </a>
-                        )}
-                      </div>
-                      <div className="flex flex-wrap gap-3 text-sm">
-                        <span className="bg-foreground text-background px-4 py-1.5 rounded-full font-medium text-xs tracking-wide">
-                          {exp.period}
-                        </span>
-                        <span className="bg-muted text-muted-foreground px-4 py-1.5 rounded-full font-medium text-xs tracking-wide">
-                          {exp.location}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Content Sections */}
-                <div className="px-8 pb-8 space-y-8">
-                  {/* Responsibilities */}
-                  <div className="space-y-4">
-                    <h4 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
-                      Key Responsibilities
-                    </h4>
-                    <div className="space-y-3">
-                      {exp.description.map((item, idx) => (
-                        <div key={idx} className="flex items-start">
-                          <div className="w-1.5 h-1.5 bg-muted-foreground rounded-full mr-4 mt-2 flex-shrink-0"></div>
-                          <span className="text-muted-foreground font-light leading-relaxed">{item}</span>
+              <div className="md:pl-10 relative">
+                {/* Timeline dot */}
+                <div className="hidden md:block timeline-dot absolute left-0 top-8 -translate-x-[4.5px]" />
+                
+                <div className="gradient-card border border-border overflow-hidden rounded-2xl">
+                  {/* Company Header */}
+                  <div className="p-8 pb-6">
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-3 mb-2">
+                          <h3 className="text-2xl font-bold font-display tracking-tight">
+                            {exp.company}
+                          </h3>
+                          {exp.link && (
+                            <a
+                              href={exp.link}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-primary hover:text-primary/80 transition-colors p-1"
+                            >
+                              <ExternalLink size={16} />
+                            </a>
+                          )}
                         </div>
-                      ))}
+                        <p className="text-lg font-light text-muted-foreground mb-4">{exp.role}</p>
+                        <div className="flex flex-wrap gap-3 text-sm">
+                          <span className="bg-primary/10 text-primary px-4 py-1.5 rounded-full font-medium text-xs tracking-wide">
+                            {exp.period}
+                          </span>
+                          <span className="bg-accent text-accent-foreground px-4 py-1.5 rounded-full font-medium text-xs tracking-wide">
+                            {exp.location}
+                          </span>
+                        </div>
+                      </div>
                     </div>
                   </div>
 
-                  {/* Achievements */}
-                  {exp.achievements && (
+                  {/* Content Sections */}
+                  <div className="px-8 pb-8 space-y-8">
+                    {/* Responsibilities */}
                     <div className="space-y-4">
-                      <h4 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
-                        Key Achievements
-                      </h4>
+                      <div className="flex items-center gap-2">
+                        <Briefcase size={16} className="text-primary" />
+                        <h4 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+                          Key Responsibilities
+                        </h4>
+                      </div>
                       <div className="space-y-3">
-                        {exp.achievements.map((achievement, idx) => (
-                          <div key={idx} className="pl-4 border-l-2 border-primary/40">
-                            <span className="text-foreground font-light leading-relaxed">{achievement}</span>
+                        {exp.description.map((item, idx) => (
+                          <div key={idx} className="flex items-start">
+                            <div className="w-1.5 h-1.5 bg-primary/50 rounded-full mr-4 mt-2 flex-shrink-0"></div>
+                            <span className="text-muted-foreground font-light leading-relaxed">{item}</span>
                           </div>
                         ))}
                       </div>
                     </div>
-                  )}
 
-                  {/* Apps & Projects */}
-                  {exp.apps && exp.apps.length > 0 && (
-                    <div className="space-y-6">
-                      <h4 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
-                        Featured Apps ({exp.apps.length})
-                      </h4>
-                      <div className={`grid gap-6 ${
-                        index === 0 && exp.apps.length >= 3 
-                          ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' 
-                          : 'grid-cols-1 lg:grid-cols-2'
-                      }`}>
-                        {exp.apps.map((app) => (
-                          <AppCard
-                            key={app.id}
-                            name={app.name}
-                            description={app.description}
-                            image={app.image}
-                            technologies={app.technologies}
-                            playStoreLink={app.playStoreLink}
-                            appStoreLink={app.appStoreLink}
-                            demoLink={app.demoLink}
-                          />
-                        ))}
+                    {/* Achievements */}
+                    {exp.achievements && (
+                      <div className="space-y-4">
+                        <div className="flex items-center gap-2">
+                          <Trophy size={16} className="text-secondary" />
+                          <h4 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+                            Key Achievements
+                          </h4>
+                        </div>
+                        <div className="space-y-3">
+                          {exp.achievements.map((achievement, idx) => (
+                            <div key={idx} className="pl-4 border-l-2 border-secondary/40 hover:border-secondary transition-colors duration-300">
+                              <span className="text-foreground font-light leading-relaxed">{achievement}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                    </div>
-                  )}
+                    )}
+
+                    {/* Apps & Projects */}
+                    {exp.apps && exp.apps.length > 0 && (
+                      <div className="space-y-6">
+                        <h4 className="text-sm font-semibold uppercase tracking-widest text-muted-foreground">
+                          🚀 Featured Apps ({exp.apps.length})
+                        </h4>
+                        <div className={`grid gap-6 ${
+                          index === 0 && exp.apps.length >= 3 
+                            ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' 
+                            : 'grid-cols-1 lg:grid-cols-2'
+                        }`}>
+                          {exp.apps.map((app) => (
+                            <AppCard
+                              key={app.id}
+                              name={app.name}
+                              description={app.description}
+                              image={app.image}
+                              technologies={app.technologies}
+                              playStoreLink={app.playStoreLink}
+                              appStoreLink={app.appStoreLink}
+                              demoLink={app.demoLink}
+                            />
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
             </ScrollReveal>

@@ -1,5 +1,5 @@
 
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import { useTheme } from '@/components/ThemeProvider';
 import flutterIcon from '@/assets/icons/flutter.svg';
 import dartIcon from '@/assets/icons/dart.svg';
@@ -24,6 +24,10 @@ const Hero = () => {
   const orbitingTools = getOrbitingTools(isDark);
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-16 pb-20 overflow-hidden">
+      {/* Gradient blobs for visual warmth */}
+      <div className="gradient-blob w-96 h-96 -top-48 -right-48" />
+      <div className="gradient-blob w-72 h-72 bottom-20 -left-36" style={{ animationDelay: '-5s' }} />
+
       <div className="section-container relative w-full">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -53,7 +57,7 @@ const Hero = () => {
                   ))}
                 </div>
 
-                <div className="relative h-64 w-64 md:h-80 md:w-80 profile-img rounded-full overflow-hidden border border-border shadow-2xl">
+                <div className="relative h-64 w-64 md:h-80 md:w-80 profile-img rounded-full overflow-hidden border-2 border-primary/20 glow-primary">
                   <img 
                     src="/lovable-uploads/400afafe-afd6-48ef-b1ae-4454b493c39a.png" 
                     alt="Pratik Pawar" 
@@ -65,23 +69,25 @@ const Hero = () => {
             
             {/* Text Content */}
             <div className="space-y-8 text-center md:text-left order-2 md:order-2">
-              {/* Badge */}
+              {/* Greeting badge */}
               <div className="inline-block animate-fade-in reveal-delay-1">
-                <div className="px-4 py-1.5 rounded-full border border-border text-sm font-light tracking-wide text-muted-foreground">
-                  Sr. Flutter Developer
+                <div className="px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-sm font-medium tracking-wide flex items-center gap-2 w-fit mx-auto md:mx-0">
+                  <Sparkles size={14} className="text-primary" />
+                  Hey there! I'm a
                 </div>
               </div>
               
               {/* Main heading */}
               <div className="overflow-hidden">
                 <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.95] tracking-tighter animate-text-reveal reveal-delay-2">
-                  Pratik Pawar
+                  <span className="text-gradient">Flutter</span>{' '}
+                  Developer
                 </h1>
               </div>
               
               <div className="overflow-hidden">
                 <p className="text-xl md:text-2xl font-light text-muted-foreground animate-text-reveal reveal-delay-3 leading-relaxed">
-                  Crafting exceptional mobile experiences with Flutter
+                  I'm <span className="font-medium text-foreground">Pratik Pawar</span> — I build beautiful, high-performance mobile apps that people love to use ✨
                 </p>
               </div>
               
@@ -89,17 +95,33 @@ const Hero = () => {
               <div className="flex flex-col sm:flex-row justify-center md:justify-start items-center gap-4 pt-4 animate-fade-in reveal-delay-4">
                 <a 
                   href="#contact" 
-                  className="px-8 py-3.5 rounded-full bg-foreground text-background font-medium text-sm tracking-wide hover:opacity-90 transition-opacity duration-300"
+                  className="btn-gradient"
                 >
-                  Get in Touch
+                  Let's Work Together
                 </a>
                 <a 
                   href="#projects" 
-                  className="group flex items-center gap-2 px-4 py-3.5 font-medium text-sm tracking-wide text-muted-foreground hover:text-foreground transition-colors duration-300"
+                  className="group flex items-center gap-2 px-4 py-3.5 font-medium text-sm tracking-wide text-muted-foreground hover:text-primary transition-colors duration-300"
                 >
-                  View Projects
+                  See My Work
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
                 </a>
+              </div>
+
+              {/* Quick stats */}
+              <div className="flex justify-center md:justify-start gap-8 pt-4 animate-fade-in reveal-delay-5">
+                <div>
+                  <p className="text-2xl font-bold text-gradient">5+</p>
+                  <p className="text-xs text-muted-foreground">Years Exp</p>
+                </div>
+                <div>
+                  <p className="text-2xl font-bold text-gradient">10+</p>
+                  <p className="text-xs text-muted-foreground">Apps Built</p>
+                </div>
+                <div>
+                  <p className="text-2xl font-bold text-gradient">4</p>
+                  <p className="text-xs text-muted-foreground">Companies</p>
+                </div>
               </div>
             </div>
           </div>
